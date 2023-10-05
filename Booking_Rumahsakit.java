@@ -62,6 +62,9 @@ Scanner sc = new Scanner (System.in);
      totalpembayaran= biaya1hari*lamarawatinap;
 
      System.out.println("**************************");
+     System.out.println("***************************");
+     System.out.println("piw piw piw astaga yaampunnnnnnnnnnnnnnnnnnnnnnnnngit");
+     System.out.println("yoimameeeennnnnnnnnnnnnnnnnnnnnnnnnnn");
      System.out.println("Total Biaya Rumah Sakit :  " + totalpembayaran);
      
     }
