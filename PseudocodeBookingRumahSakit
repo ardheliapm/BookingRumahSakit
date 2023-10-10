@@ -1,0 +1,35 @@
+1. Jalankan programnya
+2. Inisialisasi variabel: NamaPasien, Tempat, TanggalLahir, Alamat, NomorTelepon, JenisPemeriksaan, GejalaPasien, TipeKamar, NomorIdentitas, PenyakitParah, TotalPembayaran
+3. Tampilkan "Nama Pasien:"
+4. Membaca dan menyimpan masukan ke dalam NamaPasien
+5. Tampilkan "Tempat:"
+6. Membaca dan menyimpan masukan ke Tempat
+7. Tampilkan "Tanggal Lahir (format : dd/mm/yyyy):"
+8. Membaca dan menyimpan masukan ke dalam rawTanggalLahir
+9. Validasi mentahTanggalLahir dan simpan di TanggalLahir
+10. Tampilkan "Alamat:"
+11. Membaca dan menyimpan masukan ke dalam alamat
+12. Tampilkan "Nomor Telepon:"
+13. Membaca dan menyimpan masukan ke NomorTelepon
+14. Menampilkan "Nomor Identitas:"
+15. Membaca dan menyimpan masukan ke NomorIdentitas
+16. Tampilkan "Jenis Pemeriksaan:"
+17. Membaca dan menyimpan masukan ke JenisPemeriksaan
+18. Tampilkan "Gejala Pasien:"
+19. Membaca dan menyimpan masukan ke dalam GejalaPasien
+20. Tampilan "Apakah penyakit parah? (ya/tidak):"
+21. Membaca dan menyimpan masukan ke penyakitParahInput
+23. Jika penyakitParah itu benar
+    A. Tampilan "Penyakit dianggap parah. Pilih tipe kamar yang tersedia (Kelas 1 / Kelas 2 / VIP):"
+    B. Membaca dan menyimpan input ke TipeKamar
+    C. Tampilkan "Masukkan lama rawat inap(Hari):"
+    D. Membaca dan menyimpan masukan ke lamaRawatInap
+    e. Hitung totalPembayaran berdasarkan TipeKamar dan lamaRawatInap
+24. Jika penyakitParah salah
+    A. Tampilkan "Penyakit tidak dianggap parah. Silakan ambil obat di apotik."
+    B. Setel TipeKamar ke "Tidak Ada"
+    C. Setel totalPembayaran ke 0
+26. Menampilkan “DETAIL PEMESANAN dan Data Pasien:” yang berisi data pasien yang dikumpulkan
+27. Tampilkan "Total Biaya Rumah Sakit:" dengan totalPembayaran (jika penyakitParah benar)
+28. Menampilkan pesan yang sesuai untuk kasus yang tidak parah (jika penyakitParah salah)
+29. Akhiri programnya
