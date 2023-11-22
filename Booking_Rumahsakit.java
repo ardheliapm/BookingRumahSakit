@@ -80,7 +80,7 @@ System.out.println("Total Biaya Menginap Sebesar : " + biayaTot);
 }
 }
 
-System.out.println("======= Data Pasien ======= ");
+System.out.println("======= Data Pasien RS ======= ");
 for (int j = 0; j < lamaRawat.length; j++) {
     System.out.println("Data Pasien Ke - " + (j+1) + " : ");
     System.out.println("=====================4==========");
