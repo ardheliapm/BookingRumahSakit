@@ -15,7 +15,7 @@ String[] tanggalLahir = new String[jmlPasien];
 String[] alamat = new String [jmlPasien];
 String [] noTelepon = new String[jmlPasien];
 String [] noIdentitas = new String[jmlPasien];
-String [] jenisPemeriksaan = new String[jmlPasien];
+String [] jenisPelayanan = new String[jmlPasien];
 String [] gejalaPasien = new String[jmlPasien];
 String [] penyakitParah = new String [jmlPasien];
 String [] tipeKamar = new String[jmlPasien];
@@ -46,7 +46,7 @@ for (int i = 0; i < jmlPasien; i++) {
     System.out.println("Masukkan No KTP  : ");
     noIdentitas[i] = sc.next();
 
-    System.out.println("Masukkan Jenis Pemeriksaan ");
+    System.out.println("Masukkan Jenis Pelayanan ");
     jenisPemeriksaan [i] = sc.next();
 
     System.out.println("Masukkan Gejala Pasien : ");
@@ -92,7 +92,7 @@ for (int j = 0; j < lamaRawat.length; j++) {
     System.out.println("Alamat : " + alamat[j]);
     System.out.println("Nomor Telepon " + noTelepon[j]);
     System.out.println("No KTP : " + noIdentitas[j]);
-    System.out.println("Jenis Pemeriksaan : " + jenisPemeriksaan[j]);
+    System.out.println("Jenis Pelayanan : " + jenisPelayanan[j]);
     System.out.println("Gejala Pasien : " + gejalaPasien[j]);
     System.out.println("Penyakit Parah : " + penyakitParah[j]);
    
