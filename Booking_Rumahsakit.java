@@ -47,9 +47,30 @@ for (int i = 0; i < jmlPasien; i++) {
     noIdentitas[i] = sc.next();
 
     System.out.println("Masukkan Jenis Pelayanan ");
-    jenisPemeriksaan [i] = sc.next();
+    jenisPelayanan [i] = sc.next();
+    
+    //pemilihan pelayanan
+    public static jenisPelayanan(); { 
+    System.out.println("Pilih jenis pelayanan");
+    System.out.println("Asuransi kesehatan swasta");
+    System.out.println("Asuransi kesehatan pemerintah");
 
-    System.out.println("Masukkan Gejala Pasien : ");
+    Scanner sc = new Scanner(System.in);
+    int pilihan = scanner.nextInt();
+
+    if (pilihan == 1){
+        System.out.println("Anda memilih Asuransi Kesehatan Swasta");
+    }else if (pilihan == 2){
+        System.out.println("Anda memilih Asuransi kesehatan pemerintah");
+    }else {
+        System.out.println("Pilihan tidak valid. Silahkan coba lagi,");
+    }
+    }
+
+    public static String[] args; {
+        Scanner sc = new Scanner(System.in);
+    }
+        System.out.println("Masukkan Gejala Pasien : ");
     gejalaPasien[i] = sc.next();
     
 
