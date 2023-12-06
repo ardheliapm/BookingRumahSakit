@@ -159,7 +159,7 @@ System.out.println("======= Data Pasien RS ======= ");
     }
     System.out.println("Terimakasih, Semoha Lekas Sembuh");
   }
-
+}
  
    /*  if (penyakitParah[j].equalsIgnoreCase("ya")) {
         System.out.println("Total Biaya : " + biayaTot [j] ); }
@@ -167,7 +167,7 @@ System.out.println("======= Data Pasien RS ======= ");
     System.out.println("Terimakasih, Semoga Lekas Sembuh..");
     System.out.println(""); 
     */
-   }
+   
   
 
 
