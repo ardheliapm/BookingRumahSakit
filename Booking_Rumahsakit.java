@@ -69,7 +69,7 @@ String[] tanggalLahir = new String[jmlPasien];
 String[] alamat = new String [jmlPasien];
 String [] noTelepon = new String[jmlPasien];
 String [] noIdentitas = new String[jmlPasien];
-String [] jenisPemeriksaan = new String[jmlPasien];
+String [] jenisPelayanan = new String[jmlPasien];
 String [] gejalaPasien = new String[jmlPasien];
 String [] penyakitParah = new String [jmlPasien];
 String [] tipeKamar = new String[jmlPasien];
@@ -99,6 +99,32 @@ for (int i = 0; i < jmlPasien; i++) {
     System.out.println("Masukkan No KTP  : ");
     dataPasien[i][5] = sc.next();
 
+    System.out.println("Masukkan Jenis Pelayanan ");
+    jenisPelayanan [i] = sc.next();
+    
+    //pemilihan pelayanan
+    public static jenisPelayanan(); { 
+    System.out.println("Pilih jenis pelayanan");
+    System.out.println("Asuransi kesehatan swasta");
+    System.out.println("Asuransi kesehatan pemerintah");
+
+    Scanner sc = new Scanner(System.in);
+    int pilihan = scanner.nextInt();
+
+    if (pilihan == 1){
+        System.out.println("Anda memilih Asuransi Kesehatan Swasta");
+    }else if (pilihan == 2){
+        System.out.println("Anda memilih Asuransi kesehatan pemerintah");
+    }else {
+        System.out.println("Pilihan tidak valid. Silahkan coba lagi,");
+    }
+    }
+
+    public static String[] args; {
+        Scanner sc = new Scanner(System.in);
+    }
+        System.out.println("Masukkan Gejala Pasien : ");
+    gejalaPasien[i] = sc.next();
     System.out.println("Masukkan Jenis Pemeriksaan ");
     dataPasien [i][6] = sc.next();
 
@@ -145,7 +171,7 @@ System.out.println("======= Data Pasien RS ======= ");
     System.out.println("Alamat : " + alamat[j]);
     System.out.println("Nomor Telepon " + noTelepon[j]);
     System.out.println("No KTP : " + noIdentitas[j]);
-    System.out.println("Jenis Pemeriksaan : " + jenisPemeriksaan[j]);
+    System.out.println("Jenis Pelayanan : " + jenisPelayanan[j]);
     System.out.println("Gejala Pasien : " + gejalaPasien[j]);
     System.out.println("Penyakit Parah : " + penyakitParah[j]);
    */
