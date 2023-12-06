@@ -4,108 +4,7 @@ public class Booking_Rumahsakit {
     public static void main(String[] args) {
 Scanner sc = new Scanner (System.in);
 
-System.out.print("Masukkan Jumlah Pasien Hari Ini : ");
-int jmlPasien = sc.nextInt();
-
-//int[] dataPasien = new int [jmlPasien];
-String[] namaPasien = new String[jmlPasien];
-String[] tempatLahir = new String[jmlPasien];
-String[] tanggalLahir = new String[jmlPasien];
-String[] alamat = new String [jmlPasien];
-String [] noTelepon = new String[jmlPasien];
-String [] noIdentitas = new String[jmlPasien];
-String [] jenisPemeriksaan = new String[jmlPasien];
-String [] gejalaPasien = new String[jmlPasien];
-String [] penyakitParah = new String [jmlPasien];
-String [] tipeKamar = new String[jmlPasien];
-int[] lamaRawat = new int[jmlPasien];
-int [] biayaTot = new int [jmlPasien];
-//int hargaSatuHari;
-
-for (int i = 0; i < jmlPasien; i++) {
-    System.out.println("Masukkan Data Pasien Ke - " + (i+1) );
-
-    System.out.print("Masukkan Nama Pasien : ");
-    namaPasien[i] = sc.next();
-
-    System.out.print("Masukkan Tempat Lahir Pasien : ");
-    tempatLahir[i] = sc.next();
-
-    System.out.print("Masukkan Tanggal Lahir ( Contoh : 12 November 2004 ) : ");
-    tanggalLahir [i] = sc.next();
-    sc.nextLine();
-
-    System.out.print("Masukkan Alamat : ");
-    alamat [i]= sc.nextLine();
-
-    System.out.println("Masukkan Nomor Telepon : ");
-    noTelepon[i] = sc.nextLine();
-
-    System.out.println("Masukkan No KTP  : ");
-    noIdentitas[i] = sc.next();
-
-    System.out.println("Masukkan Jenis Pemeriksaan ");
-    jenisPemeriksaan [i] = sc.next();
-
-    System.out.println("Masukkan Gejala Pasien : ");
-    gejalaPasien[i] = sc.next();
-    
-
-    System.out.println("Apakah Penyakit Parah ? (ya / tidak) : ");
-    penyakitParah[i] = sc.next();
-    int hargaSatuHari = 0;
-  
-
-    if (penyakitParah[i].equalsIgnoreCase("ya")) {
-        System.out.print("Pilih Tipe Kamar (Kelas 1 / Kelas 2 / VIP) : ");
-        tipeKamar[i] = sc.next();
-        System.out.println("Masukkan Lama Rawat Inap");
-        lamaRawat[i] = sc.nextInt();
-
-        
-
-        if (tipeKamar[i].equalsIgnoreCase("Kelas 1")) {
-            hargaSatuHari = 300000;
-        } else if (tipeKamar[i].equalsIgnoreCase("Kelas 2")) {
-            hargaSatuHari = 250000;
-        } else if (tipeKamar[i].equalsIgnoreCase("VIP")) {
-            hargaSatuHari = 500000;
-        }
-
-       // int biayaTot = 0;
- biayaTot [i] =  lamaRawat [i]  * hargaSatuHari;
-System.out.println("Total Biaya Menginap Sebesar : " + biayaTot);
-} else {
-    System.out.println("Anda Tidak Perlu Rawat Inap, Silahkan Menuju Apotek untuk mengambil obat");
-}
-}
-
-System.out.println("======= Data Pasien RS ======= ");
-for (int j = 0; j < lamaRawat.length; j++) {
-    System.out.println("Data Pasien Ke - " + (j+1) + " : ");
-    System.out.println("=====================4==========");
-    System.out.println("Nama Pasien : " + namaPasien[j]);
-    System.out.println("Tempat Lahir : " + tempatLahir[j]);
-    System.out.println("Tanggal Lahir : " + tanggalLahir[j]);
-    System.out.println("Alamat : " + alamat[j]);
-    System.out.println("Nomor Telepon " + noTelepon[j]);
-    System.out.println("No KTP : " + noIdentitas[j]);
-    System.out.println("Jenis Pemeriksaan : " + jenisPemeriksaan[j]);
-    System.out.println("Gejala Pasien : " + gejalaPasien[j]);
-    System.out.println("Penyakit Parah : " + penyakitParah[j]);
-   
-  
-
- 
-    if (penyakitParah[j].equalsIgnoreCase("ya")) {
-        System.out.println("Total Biaya : " + biayaTot [j] ); }
-
-    System.out.println("Terimakasih, Semoga Lekas Sembuh..");
-    System.out.println(""); 
-    
-   }
-  
-   int choice = 0;
+ int choice = 0;
 
    do {
        System.out.println("========== Menu ========");
@@ -154,8 +53,126 @@ private static void viewDataPasien() {
 
 
 
-       
+System.out.print("Masukkan Jumlah Pasien Hari Ini : ");
+int jmlPasien = sc.nextInt();
+sc.nextLine();
+
+String [][] dataPasien = new String[jmlPasien][12];
+int [][] biayaTot = new int[jmlPasien][1];
+
+//int[] dataPasien = new int [jmlPasien];
+
+
+/*String[] namaPasien = new String[jmlPasien];
+String[] tempatLahir = new String[jmlPasien];
+String[] tanggalLahir = new String[jmlPasien];
+String[] alamat = new String [jmlPasien];
+String [] noTelepon = new String[jmlPasien];
+String [] noIdentitas = new String[jmlPasien];
+String [] jenisPemeriksaan = new String[jmlPasien];
+String [] gejalaPasien = new String[jmlPasien];
+String [] penyakitParah = new String [jmlPasien];
+String [] tipeKamar = new String[jmlPasien];
+int[] lamaRawat = new int[jmlPasien];
+//int [] biayaTot = new int [jmlPasien];
+//int hargaSatuHari;
+*/
+for (int i = 0; i < jmlPasien; i++) {
+    System.out.println("Masukkan Data Pasien Ke - " + (i+1) );
+
+    System.out.print("Masukkan Nama Pasien : ");
+    dataPasien[i][0] = sc.nextLine();
+
+    System.out.print("Masukkan Tempat Lahir Pasien : ");
+    dataPasien[i][1] = sc.nextLine();
+
+    System.out.print("Masukkan Tanggal Lahir ( Contoh : 12 November 2004 ) : ");
+    dataPasien[i][2] = sc.next();
+    sc.nextLine();
+
+    System.out.print("Masukkan Alamat : ");
+    dataPasien [i][3]= sc.nextLine();
+
+    System.out.println("Masukkan Nomor Telepon : ");
+    dataPasien[i][4] = sc.nextLine();
+
+    System.out.println("Masukkan No KTP  : ");
+    dataPasien[i][5] = sc.next();
+
+    System.out.println("Masukkan Jenis Pemeriksaan ");
+    dataPasien [i][6] = sc.next();
+
+    System.out.println("Masukkan Gejala Pasien : ");
+    dataPasien[i][7] = sc.next();
+    
+
+    System.out.println("Apakah Penyakit Parah ? (ya / tidak) : ");
+    dataPasien[i][8] = sc.next();
+    int hargaSatuHari = 0;
+  
+
+    if (dataPasien[i][8].equalsIgnoreCase("ya")) {
+        System.out.print("Pilih Tipe Kamar (Kelas 1 / Kelas 2 / VIP) : ");
+        dataPasien[i][9] = sc.next();
+        System.out.println("Masukkan Lama Rawat Inap");
+        dataPasien[i][10] = Integer.toString(sc.nextInt());
+
+        
+
+        if (dataPasien[i][9].equalsIgnoreCase("Kelas 1")) {
+            hargaSatuHari = 300000;
+        } else if (dataPasien[i][9].equalsIgnoreCase("Kelas 2")) {
+            hargaSatuHari = 250000;
+        } else if (dataPasien[i][9].equalsIgnoreCase("VIP")) {
+            hargaSatuHari = 500000;
+        }
+
+       // int biayaTot = 0;
+ biayaTot [i][0] =  Integer.parseInt(dataPasien[i][10])  * hargaSatuHari;
+System.out.println("Total Biaya Menginap Sebesar : " + biayaTot[i][0]);
+} else {
+    System.out.println("Anda Tidak Perlu Rawat Inap, Silahkan Menuju Apotek untuk mengambil obat");
+}
+}
+
+System.out.println("======= Data Pasien RS ======= ");
+/*for (int j = 0; j < lamaRawat.length; j++) {
+    System.out.println("Data Pasien Ke - " + (j+1) + " : ");
+    System.out.println("=====================4==========");
+    System.out.println("Nama Pasien : " + namaPasien[j]);
+    System.out.println("Tempat Lahir : " + tempatLahir[j]);
+    System.out.println("Tanggal Lahir : " + tanggalLahir[j]);
+    System.out.println("Alamat : " + alamat[j]);
+    System.out.println("Nomor Telepon " + noTelepon[j]);
+    System.out.println("No KTP : " + noIdentitas[j]);
+    System.out.println("Jenis Pemeriksaan : " + jenisPemeriksaan[j]);
+    System.out.println("Gejala Pasien : " + gejalaPasien[j]);
+    System.out.println("Penyakit Parah : " + penyakitParah[j]);
+   */
+  for (int j = 0; j < jmlPasien; j++) {
+    System.out.println("Data Pasien Ke - : " + (j+1) + " : ");
+    for (int k = 0; k < 11; k++) {
+        System.out.println(" : " + dataPasien[j][k]);
     }
+    if (dataPasien[j][8].equalsIgnoreCase("ya")) {
+        System.out.println("Total Biaya :  " + biayaTot[j][0]);
+    }
+    System.out.println("Terimakasih, Semoha Lekas Sembuh");
+  }
+
+ 
+   /*  if (penyakitParah[j].equalsIgnoreCase("ya")) {
+        System.out.println("Total Biaya : " + biayaTot [j] ); }
+
+    System.out.println("Terimakasih, Semoga Lekas Sembuh..");
+    System.out.println(""); 
+    */
+   }
+  
+
+
+       
+    
 
 
 
