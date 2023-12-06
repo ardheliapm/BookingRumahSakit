@@ -14,7 +14,7 @@ int [][] biayaTot = new int[jmlPasien][1];
 //int[] dataPasien = new int [jmlPasien];
 
 
-String[] namaPasien = new String[jmlPasien];
+/*String[] namaPasien = new String[jmlPasien];
 String[] tempatLahir = new String[jmlPasien];
 String[] tanggalLahir = new String[jmlPasien];
 String[] alamat = new String [jmlPasien];
@@ -27,7 +27,7 @@ String [] tipeKamar = new String[jmlPasien];
 int[] lamaRawat = new int[jmlPasien];
 //int [] biayaTot = new int [jmlPasien];
 //int hargaSatuHari;
-
+*/
 for (int i = 0; i < jmlPasien; i++) {
     System.out.println("Masukkan Data Pasien Ke - " + (i+1) );
 
@@ -67,7 +67,7 @@ for (int i = 0; i < jmlPasien; i++) {
         System.out.print("Pilih Tipe Kamar (Kelas 1 / Kelas 2 / VIP) : ");
         dataPasien[i][9] = sc.next();
         System.out.println("Masukkan Lama Rawat Inap");
-        dataPasien[i][10] = sc.nextInt();
+        dataPasien[i][10] = Integer.toString(sc.nextInt());
 
         
 
@@ -88,7 +88,7 @@ System.out.println("Total Biaya Menginap Sebesar : " + biayaTot[i][0]);
 }
 
 System.out.println("======= Data Pasien RS ======= ");
-for (int j = 0; j < lamaRawat.length; j++) {
+/*for (int j = 0; j < lamaRawat.length; j++) {
     System.out.println("Data Pasien Ke - " + (j+1) + " : ");
     System.out.println("=====================4==========");
     System.out.println("Nama Pasien : " + namaPasien[j]);
@@ -100,19 +100,28 @@ for (int j = 0; j < lamaRawat.length; j++) {
     System.out.println("Jenis Pemeriksaan : " + jenisPemeriksaan[j]);
     System.out.println("Gejala Pasien : " + gejalaPasien[j]);
     System.out.println("Penyakit Parah : " + penyakitParah[j]);
-   
-  
+   */
+  for (int j = 0; j < jmlPasien; j++) {
+    System.out.println("Data Pasien Ke - : " + (j+1) + " : ");
+    for (int k = 0; k < 11; k++) {
+        System.out.println(" : " + dataPasien[j][k]);
+    }
+    if (dataPasien[j][8].equalsIgnoreCase("ya")) {
+        System.out.println("Total Biaya :  " + biayaTot[j][0]);
+    }
+    System.out.println("Terimakasih, Semoha Lekas Sembuh");
+  }
 
  
-    if (penyakitParah[j].equalsIgnoreCase("ya")) {
+   /*  if (penyakitParah[j].equalsIgnoreCase("ya")) {
         System.out.println("Total Biaya : " + biayaTot [j] ); }
 
     System.out.println("Terimakasih, Semoga Lekas Sembuh..");
     System.out.println(""); 
-    
+    */
    }
   }
-}
+
 
         // Deklarasi Variabel
         /*String NamaPasien, Tempat, TanggalLahir, NomorTelepon, JenisPemeriksaan, GejalaPasien, TipeKamar;
