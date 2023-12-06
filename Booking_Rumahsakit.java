@@ -33,7 +33,7 @@ for (int i = 0; i < jmlPasien; i++) {
 
     System.out.print("Masukkan Tanggal Lahir ( Contoh : 12 November 2004 ) : ");
     tanggalLahir [i] = sc.next();
-
+    sc.nextLine();
 
     System.out.print("Masukkan Alamat : ");
     alamat [i]= sc.nextLine();
@@ -59,7 +59,7 @@ for (int i = 0; i < jmlPasien; i++) {
     if (penyakitParah[i].equalsIgnoreCase("ya")) {
         System.out.print("Pilih Tipe Kamar (Kelas 1 / Kelas 2 / VIP) : ");
         tipeKamar[i] = sc.next();
-        System.out.println("Masukkan Lama Rawattttttttttttttttt Inap");
+        System.out.println("Masukkan Lama Rawat Inap");
         lamaRawat[i] = sc.nextInt();
 
         
@@ -104,8 +104,60 @@ for (int j = 0; j < lamaRawat.length; j++) {
     System.out.println(""); 
     
    }
-  }
+  
+   int choice = 0;
+
+   do {
+       System.out.println("========== Menu ========");
+       System.out.println("1. Input Data Pasien");
+       System.out.println("2. View Data Pasien");
+       System.out.println("3. Exit");
+       System.out.print("Pilih menu (1-3): ");
+
+       // Check if the next input is an integer
+       if (sc.hasNextInt()) {
+           choice = sc.nextInt();
+
+           switch (choice) {
+               case 1:
+                   inputDataPasien(sc);
+                   break;
+               case 2:
+                   viewDataPasien();
+                   break;
+               case 3:
+                   System.out.println("Terima kasih. Program selesai.");
+                   break;
+               default:
+                   System.out.println("Pilihan tidak valid. Silakan pilih lagi.");
+                   break;
+           }
+       } else {
+           System.out.println("Input tidak valid. Masukkan pilihan angka (1-3).");
+           sc.next(); // Consume the non-integer input
+       }
+
+   } while (choice != 3);
+
+   sc.close();
 }
+
+private static void inputDataPasien(Scanner sc) {
+   // Your code for inputting data
+   System.out.println("Input Data Pasien");
+}
+
+private static void viewDataPasien() {
+   // Your code for viewing data
+   System.out.println("View Data Pasien");
+}
+
+
+
+       
+    }
+
+
 
         // Deklarasi Variabel
         /*String NamaPasien, Tempat, TanggalLahir, NomorTelepon, JenisPemeriksaan, GejalaPasien, TipeKamar;
