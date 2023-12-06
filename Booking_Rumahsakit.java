@@ -6,6 +6,7 @@ Scanner sc = new Scanner (System.in);
 
 System.out.print("Masukkan Jumlah Pasien Hari Ini : ");
 int jmlPasien = sc.nextInt();
+sc.nextLine();
 
 //int[] dataPasien = new int [jmlPasien];
 String[] namaPasien = new String[jmlPasien];
@@ -26,13 +27,14 @@ for (int i = 0; i < jmlPasien; i++) {
     System.out.println("Masukkan Data Pasien Ke - " + (i+1) );
 
     System.out.print("Masukkan Nama Pasien : ");
-    namaPasien[i] = sc.next();
+    namaPasien[i] = sc.nextLine();
 
     System.out.print("Masukkan Tempat Lahir Pasien : ");
-    tempatLahir[i] = sc.next();
+    tempatLahir[i] = sc.nextLine();
 
     System.out.print("Masukkan Tanggal Lahir ( Contoh : 12 November 2004 ) : ");
-    tanggalLahir [i] = sc.next();
+    tanggalLahir [i] = sc.nextLine();
+    
 
 
     System.out.print("Masukkan Alamat : ");
