@@ -132,18 +132,25 @@ break;
   }
                    break;
                case 3:
-                String noDokter = 0;
+                String noDokter ;
                System.out.println("=====Jadwal Dokter====="); 
                System.out.println("======Pilih Jenis Dokter=====");
-               System.out.println("1. Dokter Umum");
-               System.out.println("2. Dokter Mata");
-               System.out.println("3. Dokter Gigi");
-               System.out.println("4. Dokter SPPK");
+               System.out.println("1. Dokter-Umum");
+               System.out.println("2. Dokter-Mata");
+               System.out.println("3. Dokter-Gigi");
+               System.out.println("4. Dokter-SPPK");
                System.out.print("Masukkan  Dokter ( Contoh : Dokter Umum ) : ");
-               noDokter = sc.nextInt();
+               noDokter = sc.next();
             if (noDokter.equalsIgnoreCase("Dokter Umum")) {
                 System.out.println("Senin : ");
-            }
+            } else if (noDokter.equalsIgnoreCase("Dokter-Mata")) {
+                    System.out.println("Senin :  16.00 - 18.00 / 19.00 - 20.00  ");
+                    System.out.println("Rabu  : 18.00 - 21.00");
+                    System.out.println("Sabtu : 14.00 - 16.00 / 18.00 - 19. 00 ");
+
+                    
+                }
+            
                break;
                /*String[] jadwalDokter = {
                 "Senin: 08.00 - 16.00, Rabu: 10.00 - 18.00",
