@@ -101,16 +101,16 @@ int [][] biayaTot = null;
        
 
 int hargaSatuHari = 0;
-        if (dataPasien[i][8].equalsIgnoreCase("Kelas 1")) {
+        if (dataPasien[i][8].equalsIgnoreCase("Kelas-1")) {
             hargaSatuHari = 300000;
-        } else if (dataPasien[i][8].equalsIgnoreCase("Kelas 2")) {
+        } else if (dataPasien[i][8].equalsIgnoreCase("Kelas-2")) {
             hargaSatuHari = 250000;
         } else if (dataPasien[i][8].equalsIgnoreCase("VIP")) {
            hargaSatuHari = 500000;
         }
 
-       
-biayaTot[i][0]  =  hargaSatuHari * Integer.parseInt(dataPasien[i][9]);
+       int jumlahHari = Integer.parseInt(dataPasien[i][9]);
+biayaTot[i][0]  =  hargaSatuHari * jumlahHari;
 System.out.println("Total Biaya Menginap Sebesar : " + biayaTot[i][0]);
 
 } else {
