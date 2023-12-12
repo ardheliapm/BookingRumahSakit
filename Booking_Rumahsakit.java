@@ -132,9 +132,20 @@ break;
   }
                    break;
                case 3:
-
-               System.out.println("Jadwal Dokter");
-               String[] jadwalDokter = {
+                String noDokter = 0;
+               System.out.println("=====Jadwal Dokter====="); 
+               System.out.println("======Pilih Jenis Dokter=====");
+               System.out.println("1. Dokter Umum");
+               System.out.println("2. Dokter Mata");
+               System.out.println("3. Dokter Gigi");
+               System.out.println("4. Dokter SPPK");
+               System.out.print("Masukkan  Dokter ( Contoh : Dokter Umum ) : ");
+               noDokter = sc.nextInt();
+            if (noDokter.equalsIgnoreCase("Dokter Umum")) {
+                System.out.println("Senin : ");
+            }
+               break;
+               /*String[] jadwalDokter = {
                 "Senin: 08.00 - 16.00, Rabu: 10.00 - 18.00",
                 "Selasa: 09.00 - 17.00, Kamis: 11.00 - 19.00",
                 "Senin: 10.00 - 18.00, Rabu: 08.00 - 16.00"
@@ -160,8 +171,9 @@ break;
             } else {
                 System.out.println("Nomor dokter tidak valid.");
             }
+            */
 
-                   break;
+                   //break;
                case 4:
                    System.out.println("Terima kasih. Program selesai.");
                default:
