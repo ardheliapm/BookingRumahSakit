@@ -2,16 +2,22 @@ import java.util.Scanner;
 
 public class Booking_Rumahsakit {
     public static void main(String[] args) {
-Scanner sc = new Scanner (System.in);
+    Scanner sc = new Scanner (System.in);
 
- int choice = 0;
+int choice = 0;
+int jmlPasien = 0;
+String[][] dataPasien = null;
+int [][] biayaTot = null;
+
+
 
    do {
        System.out.println("========== Menu ========");
        System.out.println("1. Input Data Pasien");
        System.out.println("2. View Data Pasien");
-       System.out.println("3. Exit");
-       System.out.print("Pilih menu (1-3): ");
+       System.out.println("3. Jadwal Dokter");
+       System.out.println("4. Exit");
+       System.out.print("Pilih menu (1-4): ");
 
        // Check if the next input is an integer
        if (sc.hasNextInt()) {
@@ -19,14 +25,175 @@ Scanner sc = new Scanner (System.in);
 
            switch (choice) {
                case 1:
-                   inputDataPasien(sc);
-                   break;
+                 System.out.println("MENU 1 : INPUT DATA PASIEN");
+
+
+                        System.out.print("Masukkan Jumlah Pasien Hari Ini : ");
+                        jmlPasien = sc.nextInt();
+                        sc.nextLine();
+
+                        dataPasien = new String[jmlPasien][16];
+                        biayaTot = new int[jmlPasien][1];
+
+                //String [][]  dataPasien = new String[jmlPasien][13];
+                //int [][]biayaTot = new int[jmlPasien][1];
+
+                    for (int i = 0; i < jmlPasien; i++) {
+                    System.out.println("Masukkan Data Pasien Ke - " + (i+1) );
+
+                        System.out.print("Masukkan Nama Pasien : ");
+                        dataPasien[i][0] = sc.nextLine();
+
+                        System.out.print("Masukkan Tempat Lahir Pasien : ");
+                        dataPasien[i][1] = sc.nextLine();
+
+                        System.out.print("Masukkan Tanggal Lahir ( Contoh : 12 November 2004 ) : ");
+                        dataPasien[i][2] = sc.next();
+                        sc.nextLine();
+
+                        System.out.print("Masukkan Alamat : ");
+                        dataPasien [i][3]= sc.nextLine();
+
+                        System.out.println("Masukkan Nomor Telepon : ");
+                        dataPasien[i][4] = sc.nextLine();
+
+                        System.out.println("Masukkan No KTP  : ");
+                        dataPasien[i][5] = sc.next();
+
+                        
+
+                    
+                        System.out.println("Pilih jenis pelayanan");
+                        System.out.println("1. Asuransi kesehatan swasta");
+                        System.out.println("2. Asuransi kesehatan pemerintah");
+                        System.out.print("Masukkan Jenis Pelayanan  : ");
+                        int pilihan =sc.nextInt();
+
+                        
+                    if (pilihan == 1) {
+                        System.out.println("Anda memilih Asuransi Kesehatan Swasta");
+                    } else if (pilihan == 2) {
+                            System.out.println("Anda memilih Asuransi kesehatan pemerintahan");
+                        } else {
+                            System.out.println("Pilihan tidak valid. Silahkan coba lagi");
+                        }
+
+
+                    
+
+                        System.out.println("Masukkan Gejala Pasien : ");
+                        dataPasien[i][6] = sc.next();
+    
+                        System.out.println("Masukan Dokter yang anda pilih  : ");
+                        dataPasien[i][10] = sc.next();
+
+                        System.out.println("Masukan Jam Dokter yang anda pilih : ");
+                        dataPasien[i][11] = sc.next();
+                        sc.next();
+
+                        System.out.println("Apakah Penyakit Parah ? (ya / tidak) : ");
+                        dataPasien[i][7] = sc.next();
+                        
+   
+
+    
+     if (dataPasien[i][7].equalsIgnoreCase("ya")) {
+        System.out.print("Pilih Tipe Kamar (Kelas 1 / Kelas 2 / VIP) : ");
+        dataPasien[i][8] = sc.next();
+        sc.nextLine();
+        System.out.println("Masukkan Lama Rawat Inap");
+        dataPasien[i][9] = Integer.toString(sc.nextInt());
+
+        
+       
+
+int hargaSatuHari = 0;
+        if (dataPasien[i][8].equalsIgnoreCase("Kelas 1")) {
+            hargaSatuHari = 300000;
+        } else if (dataPasien[i][8].equalsIgnoreCase("Kelas 2")) {
+            hargaSatuHari = 250000;
+        } else if (dataPasien[i][8].equalsIgnoreCase("VIP")) {
+           hargaSatuHari = 500000;
+        }
+
+       
+biayaTot[i][0]  =  hargaSatuHari * Integer.parseInt(dataPasien[i][9]);
+System.out.println("Total Biaya Menginap Sebesar : " + biayaTot[i][0]);
+
+} else {
+    System.out.println("Anda Tidak Perlu Rawat Inap, Silahkan Menuju Apotek untuk mengambil obat");
+    }
+}
+break;
                case 2:
-                   viewDataPasien();
+               
+
+               System.out.println("VIEW DATA PASIEN");
+                    for (int j = 0; j < jmlPasien; j++) {
+                    System.out.println("Data Pasien Ke - : " + (j+1) + " : ");
+                        for (int k = 0; k < 11; k++) {
+                        System.out.println(" : " + dataPasien[j][k]); 
+                    } if (dataPasien[j][10].equalsIgnoreCase("ya")) {
+                        System.out.println("Total Biaya :  " + biayaTot[j][0]);
+                    }System.out.println("Terimakasih, Semoga Lekas Sembuh");
+  }
                    break;
                case 3:
+                String noDokter ;
+               System.out.println("=====Jadwal Dokter====="); 
+               System.out.println("======Pilih Jenis Dokter=====");
+               System.out.println("1. Dokter-Umum");
+               System.out.println("2. Dokter-Mata");
+               System.out.println("3. Dokter-Gigi");
+               System.out.println("4. Dokter-SPPK");
+               System.out.print("Masukkan  Dokter ( Contoh : Dokter Umum ) : ");
+               noDokter = sc.next();
+            if (noDokter.equalsIgnoreCase("Dokter Umum")) {
+                 System.out.println("Senin : 08.00 - 12.00");
+                System.out.println("Rabu : 10.00 - 14.00");
+                System.out.println("Jumat 13.00 - 17.00");
+            } else if (noDokter.equalsIgnoreCase("Dokter-Mata")) {
+                    System.out.println("Senin :  16.00 - 18.00 / 19.00 - 20.00  ");
+                    System.out.println("Rabu  : 18.00 - 21.00");
+                    System.out.println("Sabtu : 14.00 - 16.00 / 18.00 - 19. 00 ");
+
+                    
+                
+            
+           
+            }
+               break;
+               /*String[] jadwalDokter = {
+                "Senin: 08.00 - 16.00, Rabu: 10.00 - 18.00",
+                "Selasa: 09.00 - 17.00, Kamis: 11.00 - 19.00",
+                "Senin: 10.00 - 18.00, Rabu: 08.00 - 16.00"
+            };
+    
+            // Menampilkan daftar dokter
+            System.out.println("Daftar Dokter:");
+            for (int i = 0; i < jadwalDokter.length; i++) {
+                System.out.println((i + 1) + ". Dokter " + (char)('A' + i));
+            }
+    
+            // Meminta pengguna memilih nomor dokter
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Pilih nomor dokter (1-" + jadwalDokter.length + "): ");
+            
+            // Menggunakan nomor dokter sebagai indeks array
+            int nomorDokter = scanner.nextInt();
+            
+            // Mengecek apakah nomor dokter valid
+            if (nomorDokter >= 1 && nomorDokter <= jadwalDokter.length) {
+                // Menampilkan jadwal dokter yang dipilih
+                System.out.println("Jadwal Dokter " + (char)('A' + nomorDokter - 1) + ": " + jadwalDokter[nomorDokter - 1]);
+            } else {
+                System.out.println("Nomor dokter tidak valid.");
+            }
+            */
+
+                   //break;
+               case 4:
                    System.out.println("Terima kasih. Program selesai.");
-                   break;
                default:
                    System.out.println("Pilihan tidak valid. Silakan pilih lagi.");
                    break;
@@ -36,29 +203,36 @@ Scanner sc = new Scanner (System.in);
            sc.next(); // Consume the non-integer input
        }
 
-   } while (choice != 3);
+   } while (choice != 4);
 
-   sc.close();
-}
-
-private static void inputDataPasien(Scanner sc) {
-   // Your code for inputting data
-   System.out.println("Input Data Pasien");
-}
-
-private static void viewDataPasien() {
-   // Your code for viewing data
-   System.out.println("View Data Pasien");
+   
 }
 
 
 
-System.out.print("Masukkan Jumlah Pasien Hari Ini : ");
-int jmlPasien = sc.nextInt();
-sc.nextLine();
 
-String [][] dataPasien = new String[jmlPasien][12];
-int [][] biayaTot = new int[jmlPasien][1];
+
+
+    
+    //pemilihan pelayanan
+ 
+    
+    
+    
+        
+
+   
+    
+
+
+
+    
+   
+
+
+
+
+
 
 //int[] dataPasien = new int [jmlPasien];
 
@@ -77,7 +251,7 @@ int[] lamaRawat = new int[jmlPasien];
 //int [] biayaTot = new int [jmlPasien];
 //int hargaSatuHari;
 */
-for (int i = 0; i < jmlPasien; i++) {
+/*for (int i = 0; i < jmlPasien; i++) {
     System.out.println("Masukkan Data Pasien Ke - " + (i+1) );
 
     System.out.print("Masukkan Nama Pasien : ");
@@ -124,7 +298,8 @@ for (int i = 0; i < jmlPasien; i++) {
         Scanner sc = new Scanner(System.in);
     }
         System.out.println("Masukkan Gejala Pasien : ");
-    gejalaPasien[i] = sc.next();
+    gejalaPasien[i][5] = sc.next();
+
     System.out.println("Masukkan Jenis Pemeriksaan ");
     dataPasien [i][6] = sc.next();
 
@@ -160,22 +335,9 @@ System.out.println("Total Biaya Menginap Sebesar : " + biayaTot[i][0]);
     System.out.println("Anda Tidak Perlu Rawat Inap, Silahkan Menuju Apotek untuk mengambil obat");
 }
 }
+*/
 
-System.out.println("======= Data Pasien RS ======= ");
-/*for (int j = 0; j < lamaRawat.length; j++) {
-    System.out.println("Data Pasien Ke - " + (j+1) + " : ");
-    System.out.println("=====================4==========");
-    System.out.println("Nama Pasien : " + namaPasien[j]);
-    System.out.println("Tempat Lahir : " + tempatLahir[j]);
-    System.out.println("Tanggal Lahir : " + tanggalLahir[j]);
-    System.out.println("Alamat : " + alamat[j]);
-    System.out.println("Nomor Telepon " + noTelepon[j]);
-    System.out.println("No KTP : " + noIdentitas[j]);
-    System.out.println("Jenis Pelayanan : " + jenisPelayanan[j]);
-    System.out.println("Gejala Pasien : " + gejalaPasien[j]);
-    System.out.println("Penyakit Parah : " + penyakitParah[j]);
-   */
-  for (int j = 0; j < jmlPasien; j++) {
+  /*for (int j = 0; j < jmlPasien; j++) {
     System.out.println("Data Pasien Ke - : " + (j+1) + " : ");
     for (int k = 0; k < 11; k++) {
         System.out.println(" : " + dataPasien[j][k]);
@@ -185,7 +347,7 @@ System.out.println("======= Data Pasien RS ======= ");
     }
     System.out.println("Terimakasih, Semoha Lekas Sembuh");
   }
-}
+*/
  
    /*  if (penyakitParah[j].equalsIgnoreCase("ya")) {
         System.out.println("Total Biaya : " + biayaTot [j] ); }
@@ -193,7 +355,7 @@ System.out.println("======= Data Pasien RS ======= ");
     System.out.println("Terimakasih, Semoga Lekas Sembuh..");
     System.out.println(""); 
     */
-   
+}
   
 
 
