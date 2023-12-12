@@ -15,8 +15,9 @@ int [][] biayaTot = null;
        System.out.println("========== Menu ========");
        System.out.println("1. Input Data Pasien");
        System.out.println("2. View Data Pasien");
-       System.out.println("3. Exit");
-       System.out.print("Pilih menu (1-3): ");
+       System.out.println("3. Jadwal Dokter");
+       System.out.println("4. Exit");
+       System.out.print("Pilih menu (1-4): ");
 
        // Check if the next input is an integer
        if (sc.hasNextInt()) {
@@ -65,7 +66,7 @@ int [][] biayaTot = null;
                         System.out.println("Pilih jenis pelayanan");
                         System.out.println("1. Asuransi kesehatan swasta");
                         System.out.println("2. Asuransi kesehatan pemerintah");
-                        System.out.println("Masukkan Jenis Pelayanan  : ");
+                        System.out.print("Masukkan Jenis Pelayanan  : ");
                         int pilihan =sc.nextInt();
 
                         
@@ -127,12 +128,42 @@ break;
                         System.out.println(" : " + dataPasien[j][k]); 
                     } if (dataPasien[j][10].equalsIgnoreCase("ya")) {
                         System.out.println("Total Biaya :  " + biayaTot[j][0]);
-                    }System.out.println("Terimakasih, Semoha Lekas Sembuh");
+                    }System.out.println("Terimakasih, Semoga Lekas Sembuh");
   }
                    break;
                case 3:
-                   System.out.println("Terima kasih. Program selesai.");
+
+               System.out.println("Jadwal Dokter");
+               String[] jadwalDokter = {
+                "Senin: 08.00 - 16.00, Rabu: 10.00 - 18.00",
+                "Selasa: 09.00 - 17.00, Kamis: 11.00 - 19.00",
+                "Senin: 10.00 - 18.00, Rabu: 08.00 - 16.00"
+            };
+    
+            // Menampilkan daftar dokter
+            System.out.println("Daftar Dokter:");
+            for (int i = 0; i < jadwalDokter.length; i++) {
+                System.out.println((i + 1) + ". Dokter " + (char)('A' + i));
+            }
+    
+            // Meminta pengguna memilih nomor dokter
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Pilih nomor dokter (1-" + jadwalDokter.length + "): ");
+            
+            // Menggunakan nomor dokter sebagai indeks array
+            int nomorDokter = scanner.nextInt();
+            
+            // Mengecek apakah nomor dokter valid
+            if (nomorDokter >= 1 && nomorDokter <= jadwalDokter.length) {
+                // Menampilkan jadwal dokter yang dipilih
+                System.out.println("Jadwal Dokter " + (char)('A' + nomorDokter - 1) + ": " + jadwalDokter[nomorDokter - 1]);
+            } else {
+                System.out.println("Nomor dokter tidak valid.");
+            }
+
                    break;
+               case 4:
+                   System.out.println("Terima kasih. Program selesai.");
                default:
                    System.out.println("Pilihan tidak valid. Silakan pilih lagi.");
                    break;
@@ -142,7 +173,7 @@ break;
            sc.next(); // Consume the non-integer input
        }
 
-   } while (choice != 3);
+   } while (choice != 4);
 
    
 }
