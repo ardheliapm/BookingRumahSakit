@@ -154,6 +154,11 @@ break;
                     System.out.println("Rabu  : 18.00 - 21.00");
                     System.out.println("Jumat : 14.00 - 16.00 / 18.00 - 19. 00 ");
                     
+            } else if (noDokter.equalsIgnoreCase("Dokter-Gigi")){
+                    System.out.println("Selasa : 07.00 - 09.00 / 13.00 - 14.00 ");
+                    System.out.println("Rabu : 08.00 - 11.00 / 16.00 - 18.00 ");
+                    System.out.println("Jumat : 08.00 - 10.00");
+
             }
                break;
                /*String[] jadwalDokter = {
