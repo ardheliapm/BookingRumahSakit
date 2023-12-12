@@ -142,7 +142,9 @@ break;
                System.out.print("Masukkan  Dokter ( Contoh : Dokter Umum ) : ");
                noDokter = sc.nextInt();
             if (noDokter.equalsIgnoreCase("Dokter Umum")) {
-                System.out.println("Senin : ");
+                System.out.println("Senin : 08.00 - 12.00");
+                System.out.println("Rabu : 10.00 - 14.00");
+                System.out.println("Jumat 13.00 - 17.00");
             }
                break;
                /*String[] jadwalDokter = {
