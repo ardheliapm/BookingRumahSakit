@@ -137,7 +137,7 @@ break;
                 System.out.println("2. Dokter-Mata");
                 System.out.println("3. Dokter-Gigi");
                 System.out.println("4. Dokter-SPPK");
-                System.out.print("Masukkan  Dokter ( Contoh : Dokter Umum ) : ");
+                System.out.print("Masukkan  Dokter ( Contoh : Dokter-Umum ) : ");
                 noDokter = sc.next();
             if (noDokter.equalsIgnoreCase("Dokter-Umum")) {
                 System.out.println("Senin : 08.00 - 12.00");
