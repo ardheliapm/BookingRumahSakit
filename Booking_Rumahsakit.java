@@ -20,7 +20,7 @@ int [][] biayaTot = null;
        System.out.print("Pilih menu (1-4): ");
 
        // Check if the next input is an integer
-       if (sc.hasNextInt()) {
+        if (sc.hasNextInt()) {
            choice = sc.nextInt();
 
            switch (choice) {
@@ -108,16 +108,16 @@ int [][] biayaTot = null;
        
 
 int hargaSatuHari = 0;
-        if (dataPasien[i][8].equalsIgnoreCase("Kelas 1")) {
+        if (dataPasien[i][8].equalsIgnoreCase("Kelas-1")) {
             hargaSatuHari = 300000;
-        } else if (dataPasien[i][8].equalsIgnoreCase("Kelas 2")) {
+        } else if (dataPasien[i][8].equalsIgnoreCase("Kelas-2")) {
             hargaSatuHari = 250000;
         } else if (dataPasien[i][8].equalsIgnoreCase("VIP")) {
            hargaSatuHari = 500000;
         }
 
-       
-biayaTot[i][0]  =  hargaSatuHari * Integer.parseInt(dataPasien[i][9]);
+       int jumlahHari = Integer.parseInt(dataPasien[i][9]);
+biayaTot[i][0]  =  hargaSatuHari * jumlahHari;
 System.out.println("Total Biaya Menginap Sebesar : " + biayaTot[i][0]);
 
 } else {
@@ -125,10 +125,8 @@ System.out.println("Total Biaya Menginap Sebesar : " + biayaTot[i][0]);
     }
 }
 break;
-               case 2:
-               
-
-               System.out.println("VIEW DATA PASIEN");
+            case 2:
+                System.out.println("VIEW DATA PASIEN");
                     for (int j = 0; j < jmlPasien; j++) {
                     System.out.println("Data Pasien Ke - : " + (j+1) + " : ");
                         for (int k = 0; k < 11; k++) {
@@ -136,31 +134,34 @@ break;
                     } if (dataPasien[j][10].equalsIgnoreCase("ya")) {
                         System.out.println("Total Biaya :  " + biayaTot[j][0]);
                     }System.out.println("Terimakasih, Semoga Lekas Sembuh");
-  }
+                    }
                    break;
-               case 3:
+            case 3:
                 String noDokter ;
-               System.out.println("=====Jadwal Dokter====="); 
-               System.out.println("======Pilih Jenis Dokter=====");
-               System.out.println("1. Dokter-Umum");
-               System.out.println("2. Dokter-Mata");
-               System.out.println("3. Dokter-Gigi");
-               System.out.println("4. Dokter-SPPK");
-               System.out.print("Masukkan  Dokter ( Contoh : Dokter Umum ) : ");
-               noDokter = sc.next();
-            if (noDokter.equalsIgnoreCase("Dokter Umum")) {
-                 System.out.println("Senin : 08.00 - 12.00");
+                System.out.println("=====Jadwal Dokter====="); 
+                System.out.println("======Pilih Jenis Dokter=====");
+                System.out.println("1. Dokter-Umum");
+                System.out.println("2. Dokter-Mata");
+                System.out.println("3. Dokter-Gigi");
+                System.out.println("4. Dokter-SPPK");
+                System.out.print("Masukkan  Dokter ( Contoh : Dokter-Umum ) : ");
+                noDokter = sc.next();
+            if (noDokter.equalsIgnoreCase("Dokter-Umum")) {
+                System.out.println("Senin : 08.00 - 12.00");
                 System.out.println("Rabu : 10.00 - 14.00");
                 System.out.println("Jumat 13.00 - 17.00");
             } else if (noDokter.equalsIgnoreCase("Dokter-Mata")) {
                     System.out.println("Senin :  16.00 - 18.00 / 19.00 - 20.00  ");
                     System.out.println("Rabu  : 18.00 - 21.00");
                     System.out.println("Sabtu : 14.00 - 16.00 / 18.00 - 19. 00 ");
-
-                    
-                
-            
-           
+            } else if  (noDokter.equalsIgnoreCase("Dokter-SPKK")){
+                    System.out.println("Senin :  16.00 - 17.00 / 19.00 - 21.00  ");
+                    System.out.println("Rabu  : 18.00 - 21.00");
+                    System.out.println("Jumat : 14.00 - 16.00 / 18.00 - 19. 00 ");
+            } else if (noDokter.equalsIgnoreCase("Dokter-Gigi")){
+                    System.out.println("Selasa : 07.00 - 09.00 / 13.00 - 14.00 ");
+                    System.out.println("Rabu : 08.00 - 11.00 / 16.00 - 18.00 ");
+                    System.out.println("Jumat : 08.00 - 10.00");
             }
                break;
                /*String[] jadwalDokter = {
