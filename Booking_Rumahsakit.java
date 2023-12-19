@@ -233,10 +233,19 @@ int hargaSatuHari = 0;
            hargaSatuHari = 500000;
         }
 
-       int jumlahHari = Integer.parseInt(dataPasien[i][9]);
-biayaTot[i][0]  =  hargaSatuHari * jumlahHari;
-System.out.println("Total Biaya Menginap Sebesar : " + biayaTot[i][0]);
+        System.out.print("Masukkan Lama Rawat Inap: ");
+            int jumlahHari = sc.nextInt();
+        System.out.print("Masukkan Persentase Diskon (0-100): ");
+        double diskonPercentage = sc.nextDouble();
 
+        int biayaSebelumDiskon = hargaSatuHari * jumlahHari;
+        int diskon = (int) (biayaSebelumDiskon * (diskonPercentage / 100));
+        int biayaSetelahDiskon = biayaSebelumDiskon - diskon;
+
+        biayaTot[i][0] = biayaSetelahDiskon;
+
+        System.out.println("Total Biaya Menginap Setelah Diskon: " + biayaTot[i][0]);
+    }
 }} else {
     System.out.println("Anda Tidak Perlu Rawat Inap, Silahkan Menuju Apotek untuk mengambil obat");
 }}
