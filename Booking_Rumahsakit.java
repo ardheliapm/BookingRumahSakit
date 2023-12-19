@@ -272,7 +272,7 @@ public class Booking_Rumahsakit {
 
         System.out.println("Total Biaya Menginap Setelah Diskon: " + biayaTot[i][0]);
     }
-}} else {
+} else {
     System.out.println("Anda Tidak Perlu Rawat Inap, Silahkan Menuju Apotek untuk mengambil obat");
 }}
 
