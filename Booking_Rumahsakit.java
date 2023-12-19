@@ -22,18 +22,30 @@ public class Booking_Rumahsakit {
     System.out.print("Masukkan Password : ");
     String masukkanPassword = sc.nextLine();
 
-    dataPasien = new String[jmlPasien][16];
-    biayaTot = new int[jmlPasien][1];
+    boolean loginberhasil = false ;
+
+    do {
+        System.out.print("Masukan username : ");
+        String masukanUsername = sc.nextLine();
+
+        System.out.print("Masukan Password : ");
+        String masukanPassword = sc.nextLine();
+
+        dataPasien = new String[jmlPasien][16];
+        biayaTot = new int[jmlPasien][1];
+
 
     if (login(masukkanUsername,masukkanPassword, usernameAdmin,passwordAdmin)) {
         adminMenu();
+        loginberhasil = true ;
     } else if (login (masukkanUsername,masukkanPassword,usernamePasien,passwordPasien)) {
         menuPasien();
+        loginberhasil = true ;
     } else {
-        System.out.println("Invalid Username dan Password");
-
+        System.out.println("Invalid Username dan Password Silahkan Coba Lagi ");
+      }
+    } while (loginberhasil);
         sc.close();
-    }
     }
     
 
@@ -46,7 +58,7 @@ public class Booking_Rumahsakit {
         System.out.println("SELAMAT DATANG DI MENU ADMIN ");
         int pilihan;
 
-        do {
+         {
             System.out.println("Pilihan Menu : ");
             System.out.println("1. Laporan Harian ");
             System.out.println("2. Cek Ketersediaan Kamar ");
