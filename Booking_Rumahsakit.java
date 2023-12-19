@@ -20,18 +20,30 @@ public class Booking_Rumahsakit {
     System.out.print("Masukkan Password : ");
     String masukkanPassword = sc.nextLine();
 
-    dataPasien = new String[jmlPasien][16];
-    biayaTot = new int[jmlPasien][1];
+    boolean loginberhasil = false ;
+
+    do {
+        System.out.print("Masukan username : ");
+        String masukanUsername = sc.nextLine();
+
+        System.out.print("Masukan Password : ");
+        String masukanPassword = sc.nextLine();
+
+        dataPasien = new String[jmlPasien][16];
+        biayaTot = new int[jmlPasien][1];
+
 
     if (login(masukkanUsername,masukkanPassword, usernameAdmin,passwordAdmin)) {
         adminMenu();
+        loginberhasil = true ;
     } else if (login (masukkanUsername,masukkanPassword,usernamePasien,passwordPasien)) {
         menuPasien();
+        loginberhasil = true ;
     } else {
-        System.out.println("Invalid Username dan Password");
-
+        System.out.println("Invalid Username dan Password Silahkan Coba Lagi ");
+      }
+    } while (loginberhasil);
         sc.close();
-    }
     }
     
 
@@ -44,33 +56,13 @@ public class Booking_Rumahsakit {
         System.out.println("SELAMAT DATANG DI MENU ADMIN ");
         int pilihan;
 
-        do {
+         {
             System.out.println("Pilihan Menu : ");
             System.out.println("1. Laporan Harian ");
             System.out.println("2. Cek Ketersediaan Kamar ");
             System.out.println("3. Keluar ");
-            System.out.print ("Masukkan No Menu (1/2/3) : ");
-
-            Scanner sc = new Scanner(System.in);
-            pilihan = sc.nextInt();
-
-            switch (pilihan) {
-                
-                case 1: 
-                laporanHarian();
-                    break;
-                case 2: 
-                laporanBulanan();
-                    break;
-                case 3:
-                System.out.println("Terimakasih untuk Laporan Hari ini !");
-                    break;
-                default:
-                System.out.println("Invalid ");
-                }
-        } while (pilihan != 3 );
-    }
-
+            System.out.print ("Masukkan No Menu (1/2/3) : ")  }
+    
     private static void menuPasien (){
         System.out.println("Selamat Datang di Rumah Sakit Polinema");
         int pilihan;
