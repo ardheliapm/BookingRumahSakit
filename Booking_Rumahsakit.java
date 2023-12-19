@@ -7,6 +7,8 @@ public class Booking_Rumahsakit {
     private static int [][] biayaTot;
     private static int jmlPasien = 0; 
     private static boolean [][] kamarTerisi;
+    private static double diskon = 0.1;
+    private static String kodeVoucher = "NOVOUCHER";
  public static void main(String[] args) {
     String usernameAdmin = "adminRS";
     String passwordAdmin = "adminRS123";
@@ -48,7 +50,8 @@ public class Booking_Rumahsakit {
             System.out.println("Pilihan Menu : ");
             System.out.println("1. Laporan Harian ");
             System.out.println("2. Cek Ketersediaan Kamar ");
-            System.out.println("3. Keluar ");
+            System.out.println("3. Set Diskon / Voucher");
+            System.out.println("4. Keluar ");
             System.out.print ("Masukkan No Menu (1/2/3) : ");
 
             Scanner sc = new Scanner(System.in);
@@ -60,15 +63,25 @@ public class Booking_Rumahsakit {
                 laporanHarian();
                     break;
                 case 2: 
-                laporanBulanan();
+               cekKetersediaanKamar();
                     break;
                 case 3:
-                System.out.println("Terimakasih untuk Laporan Hari ini !");
+                aturDiskon();
                     break;
+                case 4:
+                System.out.println("Terimakasih untuk Laporan Hari Ini");
                 default:
-                System.out.println("Invalid ");
+                System.out.println("Invalid");
                 }
         } while (pilihan != 3 );
+    }
+
+    private static void aturDiskon() {
+        System.out.println("Masukkan Kode Voucher");
+        kodeVoucher = sc.next();
+        System.out.println("Masukkan persentase diskon ( misal 0.1 untuk 10 %) : ");
+        diskon = sc.nextDouble();
+        System.out.println("Diskon/Voucher Berhasil ditambahkan ");
     }
 
     private static void menuPasien (){
@@ -187,19 +200,23 @@ public class Booking_Rumahsakit {
 
                     
 
-                        System.out.println("Masukkan Gejala Pasien : ");
+                        System.out.print("Masukkan Gejala Pasien : ");
                         dataPasien[i][6] = sc.next();
     
-                        System.out.println("Masukan Dokter yang anda pilih  : ");
+                        System.out.print("Masukan Dokter yang anda pilih  : ");
                         dataPasien[i][10] = sc.next();
 
                         System.out.println("Masukan Jam Dokter yang anda pilih : ");
                         dataPasien[i][11] = sc.next();
-                        sc.next();
+                        
 
                         System.out.println("Apakah Penyakit Parah ? (ya / tidak) : ");
                         dataPasien[i][7] = sc.next();
                         
+                        double totalBiaya = biayaTot[i][0];
+                        totalBiaya = masukkanDiskonVoucher(totalBiaya);
+
+                        System.out.println("Total Biaya Menginap Sebesar : " + totalBiaya);
    
 
     
@@ -215,6 +232,7 @@ public class Booking_Rumahsakit {
 
         System.out.print("Masukkan Nomor Kamar (1-" + kamarTerisi[pilihanKelas - 1].length + "): ");
         int nomorKamar = sc.nextInt();
+        dataPasien[i][13] = Integer.toString(nomorKamar);
 
         if (kamarTerisi[pilihanKelas - 1][nomorKamar - 1]) {
             System.out.println("Kamar telah terisi. Pilih kamar lain.");
@@ -222,16 +240,24 @@ public class Booking_Rumahsakit {
         } else {
             kamarTerisi[pilihanKelas - 1][nomorKamar - 1] = true;
             dataPasien[i][12] = Integer.toString(nomorKamar);
-       
 
-int hargaSatuHari = 0;
-        if (dataPasien[i][8].equalsIgnoreCase("Kelas-1")) {
-            hargaSatuHari = 300000;
-        } else if (dataPasien[i][8].equalsIgnoreCase("Kelas-2")) {
-            hargaSatuHari = 250000;
-        } else if (dataPasien[i][8].equalsIgnoreCase("VIP")) {
-           hargaSatuHari = 500000;
-        }
+            String tipeKamar = dataPasien[i][13];
+
+            int hargaSatuHari = 0;
+  
+       
+       
+            if ("1".equalsIgnoreCase(tipeKamar)) {
+                hargaSatuHari = 300000;
+            } else if ("2".equalsIgnoreCase(tipeKamar)) {
+                hargaSatuHari = 250000;
+            } else if("3".equalsIgnoreCase(tipeKamar)){
+                hargaSatuHari = 500000;
+            }  
+  
+  
+
+
 
        int jumlahHari = Integer.parseInt(dataPasien[i][9]);
 biayaTot[i][0]  =  hargaSatuHari * jumlahHari;
@@ -243,6 +269,21 @@ System.out.println("Total Biaya Menginap Sebesar : " + biayaTot[i][0]);
 
     }
 
+    private static double masukkanDiskonVoucher (double totalBiaya){
+        if (kodeVoucher.equals("NOVOUCHER") || !kodeVoucher.equals("DUDUUD")) {
+                totalBiaya -= totalBiaya * diskon;
+                System.out.println("Diskon " + (diskon * 100 ) + "% berhasil diterapkan");
+        } else {
+            System.out.println("Kode Voucher tidak Valid");
+        } return totalBiaya;
+    }
+            
+           
+         
+    
+    
+        
+    
     private static void laporanHarian(){
         for (int i = 0; i < jmlPasien ; i++) {
         System.out.println("Data Pasien Ke - " + (i + 1));
@@ -264,9 +305,30 @@ System.out.println("Total Biaya Menginap Sebesar : " + biayaTot[i][0]);
             System.out.println("Total Biaya Menginap : " + biayaTot[i][0]);
             
         }
-        System.out.println();
+        System.out.println();}
         }
-}
+
+        private static void cekKetersediaanKamar(){
+            System.out.println("=====Cek Ketersediaan Kamar=====");
+            System.out.println("1. Kelas 1");
+            System.out.println("2. Kelas 2");
+            System.out.println("3. VIP");
+            System.out.print("Masukkan Pilihan (1/2/3) : ");
+            int pilihanKelas = sc.nextInt();
+
+            if (pilihanKelas < 1 || pilihanKelas > kamarTerisi.length) {
+                System.out.println("Pilihan kelas tidak valid.");
+                return;
+            }
+        
+            System.out.println("Ketersediaan Kamar untuk Kelas " + pilihanKelas + ":");
+        
+            for (int nomorKamar = 0; nomorKamar < kamarTerisi[pilihanKelas - 1].length; nomorKamar++) {
+                String status = kamarTerisi[pilihanKelas - 1][nomorKamar] ? "Terisi" : "Kosong";
+                System.out.println("Kamar " + (nomorKamar + 1) + ": " + status);
+            }
+        }
+
 
 
 
