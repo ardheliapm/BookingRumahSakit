@@ -90,7 +90,8 @@ public class Booking_Rumahsakit {
      System.out.println("Masukkan Persentase diskon (misal 0.1 untuk 10 %) : ");
      double diskonBaru = sc.nextDouble();
 
-     voucherCode.add(voucherBaru);
+        kodeVoucher = voucherBaru;
+        diskon = diskonBaru;
      System.out.println("Voucher Kode Berhasil Ditambahkan ");
     }
 
