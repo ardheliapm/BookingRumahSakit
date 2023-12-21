@@ -11,63 +11,42 @@ public class Booking_Rumahsakit {
     private static String kodeVoucher = "NOVOUCHER";
  public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    System.out.println("Selamat datang! Silakan pilih masuk sebagai (admin/pasien)");
-    String user = sc.next();
+        boolean programRunning = true;
+        while (programRunning) {
+            System.out.println("|==================================================|");
+            System.out.println("|                    Menu Utama                    |");
+            System.out.println("|==================================================|");
+            System.out.println("|          1. Login sebagai Admin                  |");
+            System.out.println("|          2. Login sebagai Pasien                 |");
+            System.out.println("|          3. Exit                                 |");
+            System.out.println("|==================================================|");
 
-<<<<<<< HEAD
-    if (user.equalsIgnoreCase("Admin")){
-        System.out.println("Anda masuk sebagai Admin. Selamat Bekerja!");
-        Admin();
-    }else if (user.equalsIgnoreCase("Pasien")){
-        System.out.println("Anda masuk sebagai pasien. Siolahkan pilih menu di bawah.");
-        Pasien();
-    }else {
-        System.out.println("Pemilihan user tidak valid.");
-=======
-    String usernamePasien = "pasienRS"; 
-    String passwordPasien = "pasienRS123";
-
-    boolean loginberhasil = false ;
-
-    do {
-        System.out.print("Masukan username : ");
-        String masukkanUsername = sc.nextLine();
-
-        System.out.print("Masukan Password : ");
-        String masukkanPassword = sc.nextLine();
-
-        dataPasien = new String[jmlPasien][16];
-        biayaTot = new int[jmlPasien][1];
-
-
-    if (login(masukkanUsername,masukkanPassword, usernameAdmin,passwordAdmin)) {
-        adminMenu();
-        loginberhasil = true ;
-    } else if (login (masukkanUsername,masukkanPassword,usernamePasien,passwordPasien)) {
-        menuPasien();
-        loginberhasil = true ;
-    } else {
-        System.out.println("Invalid Username dan Password Silahkan Coba Lagi ");
-      }
-    } while (loginberhasil);
-        sc.close();
->>>>>>> 84af8226410315863e5e2b82f0562fab309308d2
-    }
+            System.out.print(  "|                   Pilih opsi: ");
+            int menuUtamaChoice = sc.nextInt();
+            System.out.println("|==================================================|");
+            switch (menuUtamaChoice) {
+                case 1:
+                    Admin();
+                    break;
+                case 2:
+                    Pasien();
+                    break;
+                case 3:
+                    programRunning = false;
+                    break;
+                default:
+                    System.out.println("                                                    ");
+                    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<");
+                    System.out.println("       Pilihan tidak valid. Silakan pilih lagi.");
+                    System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<");
+                    System.out.println("                                                    ");
+                    break;
+            }
+        }    
  }
 
     private static void Admin() {
         int pilihan;
-<<<<<<< HEAD
-        Scanner sc = new Scanner(System.in);
-        do {
-            System.out.println("Pilihan Menu : ");
-            System.out.println("1. Laporan Harian ");
-            System.out.println("2. Cek Ketersediaan Kamar ");
-            System.out.println("3. Set Diskon / Voucher");
-            System.out.println("4. Keluar ");
-            System.out.print ("Masukkan No Menu (1/2/3) : ");
-
-=======
 
          {
             System.out.println("|===========================================|");
@@ -80,9 +59,7 @@ public class Booking_Rumahsakit {
             System.out.println("|           Masukkan No Menu (1/2/3) :      |");
             System.out.println("|===========================================|");
             
-           
             Scanner sc = new Scanner(System.in);
->>>>>>> 84af8226410315863e5e2b82f0562fab309308d2
             pilihan = sc.nextInt();
 
             switch (pilihan) {
@@ -134,7 +111,7 @@ public class Booking_Rumahsakit {
                     break;
                 case 3:
                 System.out.println("Terimakasih ! Semoga Lekas Sembuh ");
-                break; 
+                return; 
             
                 default:
                 System.out.println(" Invalid ");
@@ -145,31 +122,82 @@ public class Booking_Rumahsakit {
 
     private static void jadwalDokter(){
            String noDokter ;
-                System.out.println("=====Jadwal Dokter====="); 
+           char jwb;
+           boolean menuJadwal = true;
+           while(menuJadwal){
+                System.out.println("=============================");
+                System.out.println("========Jadwal Dokter========"); 
                 System.out.println("======Pilih Jenis Dokter=====");
-                System.out.println("1. Dokter-Umum");
-                System.out.println("2. Dokter-Mata");
-                System.out.println("3. Dokter-Gigi");
-                System.out.println("4. Dokter-SPPK");
-                System.out.print("Masukkan  Dokter (1-2-3-4 ) : ");
+                System.out.println("    1. Dokter-Umum           ");
+                System.out.println("    2. Dokter-Mata           ");
+                System.out.println("    3. Dokter-Gigi           ");
+                System.out.println("    4. Dokter-SPPK           ");
+                System.out.println("    5. Exit                  ");
+                System.out.print("Masukkan  Dokter (1-2-3-4-5) : ");
                 noDokter = sc.next();
+
             if (noDokter.equalsIgnoreCase("1")) {
                 System.out.println("Senin : 08.00 - 12.00");
                 System.out.println("Rabu : 10.00 - 14.00");
                 System.out.println("Jumat 13.00 - 17.00");
+                System.out.println("=======================");
+                System.out.println("Apakah ingin melihat jadwal lainnya? Y/N");
+                jwb = sc.next().charAt(0);
+                if (jwb == 'Y') {
+                    continue;
+                } else if (jwb == 'N'){
+                    return;
+                } else {System.out.println("Salah!");}
+
+                
             } else if (noDokter.equalsIgnoreCase("2")) {
-                    System.out.println("Senin :  16.00 - 18.00 / 19.00 - 20.00  ");
-                    System.out.println("Rabu  : 18.00 - 21.00");
-                    System.out.println("Sabtu : 14.00 - 16.00 / 18.00 - 19. 00 ");
+                System.out.println("Senin :  16.00 - 18.00 / 19.00 - 20.00  ");
+                System.out.println("Rabu  : 18.00 - 21.00");
+                System.out.println("Sabtu : 14.00 - 16.00 / 18.00 - 19. 00 ");
+                System.out.println("=======================");
+                System.out.println("Apakah ingin melihat jadwal lainnya? Y/N");
+                jwb = sc.next().charAt(0);
+                if (jwb == 'Y') {
+                    continue;
+                } else if (jwb == 'N'){
+                    return;
+                } else {System.out.println("Salah!");}
+
+
             } else if  (noDokter.equalsIgnoreCase("3")){
-                    System.out.println("Senin :  16.00 - 17.00 / 19.00 - 21.00  ");
-                    System.out.println("Rabu  : 18.00 - 21.00");
-                    System.out.println("Jumat : 14.00 - 16.00 / 18.00 - 19. 00 ");
+                System.out.println("Senin :  16.00 - 17.00 / 19.00 - 21.00  ");
+                System.out.println("Rabu  : 18.00 - 21.00");
+                System.out.println("Jumat : 14.00 - 16.00 / 18.00 - 19. 00 ");
+                System.out.println("=======================");
+                System.out.println("Apakah ingin melihat jadwal lainnya? Y/N");
+                jwb = sc.next().charAt(0);
+                if (jwb == 'Y') {
+                    continue;
+                } else if (jwb == 'N'){
+                    return;
+                } else {System.out.println("Salah!");}
+
+
             } else if (noDokter.equalsIgnoreCase("4")){
-                    System.out.println("Selasa : 07.00 - 09.00 / 13.00 - 14.00 ");
-                    System.out.println("Rabu : 08.00 - 11.00 / 16.00 - 18.00 ");
-                    System.out.println("Jumat : 08.00 - 10.00");
-            }
+                System.out.println("Selasa : 07.00 - 09.00 / 13.00 - 14.00 ");
+                System.out.println("Rabu : 08.00 - 11.00 / 16.00 - 18.00 ");
+                System.out.println("Jumat : 08.00 - 10.00");
+                System.out.println("=======================");
+                System.out.println("Apakah ingin melihat jadwal lainnya? Y/N");
+                jwb = sc.next().charAt(0);
+                if (jwb == 'Y') {
+                    continue;
+                } else if (jwb == 'N'){
+                    return;
+                } else {System.out.println("Salah!");}
+
+            } else if (noDokter.equalsIgnoreCase("5")){
+                menuJadwal = false;
+                System.out.println("Keluar dari menu jadwal dokter");
+            } else {System.out.println("input salah!");}
+            
+
+           }
     }
 
     private static void inputDataPasien(){
@@ -319,10 +347,6 @@ public class Booking_Rumahsakit {
     }
             
            
-         
-    
-    
-        
     
     private static void laporanHarian(){
        System.out.println("============================");
