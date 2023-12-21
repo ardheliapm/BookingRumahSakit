@@ -63,11 +63,16 @@ public class Booking_Rumahsakit {
         } while (pilihan != 4 );
     }
     private static void aturDiskon() {
-        System.out.println("Masukkan Kode Voucher");
-        kodeVoucher = sc.next();
-        System.out.println("Masukkan persentase diskon ( misal 0.1 untuk 10 %) : ");
-        diskon = sc.nextDouble();
-        System.out.println("Diskon/Voucher Berhasil ditambahkan ");
+     Scanner sc = new Scanner(System.in);
+
+     System.out.print("Masukkan Kode Voucher Baru : ");
+     String voucherBaru = sc.next();
+
+     System.out.println("Masukkan Persentase diskon (misal 0.1 untuk 10 %) : ");
+     double diskonBaru = sc.nextDouble();
+
+     voucherCodes.add(voucherBaru);
+     System.out.println("Voucher Kode Berhasil Ditambahkan ");
     }
 
     private static void Pasien (){
@@ -200,10 +205,17 @@ public class Booking_Rumahsakit {
                         System.out.println("Apakah Penyakit Parah ? (ya / tidak) : ");
                         dataPasien[i][7] = sc.next();
                         
-                        double totalBiaya = biayaTot[i][0];
-                        totalBiaya = masukkanDiskonVoucher(totalBiaya);
+                        System.out.println("Masukkan Kode Voucher (Jika ada, Jika tidak, maka ketik NOVOUCHER) : ");
+                        String voucherCode = sc.next();
 
+                        double totalBiaya = hitungBiayaTanpaVoucher(i);
+
+                        if (!voucherCode.equalsIgnoreCase("NOVOUCHER") && voucherCodes.contains(voucherCode)) {
+                            totalBiaya = setelahVoucherDiskon (totalBiaya);
+                        }
                         System.out.println("Total Biaya Menginap Sebesar : " + totalBiaya);
+                 
+
    
 
     
@@ -258,6 +270,7 @@ public class Booking_Rumahsakit {
         int biayaSetelahDiskon = biayaSebelumDiskon - diskon;
 
         biayaTot[i][0] = biayaSetelahDiskon;
+
         System.out.println("Total Biaya Menginap Setelah Diskon: " + biayaTot[i][0]);
     }
 } else {
