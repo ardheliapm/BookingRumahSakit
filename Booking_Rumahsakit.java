@@ -14,7 +14,6 @@ public class Booking_Rumahsakit {
     System.out.println("Selamat datang! Silakan pilih masuk sebagai (admin/pasien)");
     String user = sc.next();
 
-<<<<<<< HEAD
     if (user.equalsIgnoreCase("Admin")){
         System.out.println("Anda masuk sebagai Admin. Selamat Bekerja!");
         Admin();
@@ -23,51 +22,11 @@ public class Booking_Rumahsakit {
         Pasien();
     }else {
         System.out.println("Pemilihan user tidak valid.");
-=======
-    String usernamePasien = "pasienRS"; 
-    String passwordPasien = "pasienRS123";
-
-    boolean loginberhasil = false ;
-
-    do {
-        System.out.print("Masukan username : ");
-        String masukkanUsername = sc.nextLine();
-
-        System.out.print("Masukan Password : ");
-        String masukkanPassword = sc.nextLine();
-
-        dataPasien = new String[jmlPasien][16];
-        biayaTot = new int[jmlPasien][1];
-
-
-    if (login(masukkanUsername,masukkanPassword, usernameAdmin,passwordAdmin)) {
-        adminMenu();
-        loginberhasil = true ;
-    } else if (login (masukkanUsername,masukkanPassword,usernamePasien,passwordPasien)) {
-        menuPasien();
-        loginberhasil = true ;
-    } else {
-        System.out.println("Invalid Username dan Password Silahkan Coba Lagi ");
-      }
-    } while (loginberhasil);
-        sc.close();
->>>>>>> 84af8226410315863e5e2b82f0562fab309308d2
     }
  }
 
     private static void Admin() {
         int pilihan;
-<<<<<<< HEAD
-        Scanner sc = new Scanner(System.in);
-        do {
-            System.out.println("Pilihan Menu : ");
-            System.out.println("1. Laporan Harian ");
-            System.out.println("2. Cek Ketersediaan Kamar ");
-            System.out.println("3. Set Diskon / Voucher");
-            System.out.println("4. Keluar ");
-            System.out.print ("Masukkan No Menu (1/2/3) : ");
-
-=======
 
          {
             System.out.println("|===========================================|");
@@ -82,7 +41,6 @@ public class Booking_Rumahsakit {
             
            
             Scanner sc = new Scanner(System.in);
->>>>>>> 84af8226410315863e5e2b82f0562fab309308d2
             pilihan = sc.nextInt();
 
             switch (pilihan) {
@@ -300,7 +258,6 @@ public class Booking_Rumahsakit {
         int biayaSetelahDiskon = biayaSebelumDiskon - diskon;
 
         biayaTot[i][0] = biayaSetelahDiskon;
-
         System.out.println("Total Biaya Menginap Setelah Diskon: " + biayaTot[i][0]);
     }
 } else {
