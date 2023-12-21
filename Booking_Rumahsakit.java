@@ -12,7 +12,7 @@ public class Booking_Rumahsakit {
  public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
         boolean programRunning = true;
-        while (programRunning) {
+        while (programRunning) { 
             System.out.println("|==================================================|");
             System.out.println("|                    Menu Utama                    |");
             System.out.println("|==================================================|");
