@@ -148,6 +148,7 @@ public class Booking_Rumahsakit {
             new boolean[20],
             new boolean [10]
          };
+         int hargaSatuHari = 0;
 
          for (int i = 0; i < jmlPasien; i++) {
                     System.out.println("Masukkan Data Pasien Ke - " + (i+1) );
@@ -208,14 +209,7 @@ public class Booking_Rumahsakit {
                         System.out.println("Masukkan Kode Voucher (Jika ada, Jika tidak, maka ketik NOVOUCHER) : ");
                         String voucherCode = sc.next();
 
-                        double totalBiaya = hitungBiayaTanpaVoucher(i);
-
-                        if (!voucherCode.equalsIgnoreCase("NOVOUCHER") && voucherCodes.contains(voucherCode)) {
-                            totalBiaya = setelahVoucherDiskon (totalBiaya);
-                        }
-                        System.out.println("Total Biaya Menginap Sebesar : " + totalBiaya);
-                 
-
+                      
    
 
     
@@ -244,15 +238,33 @@ public class Booking_Rumahsakit {
 
             String tipeKamar = dataPasien[i][13];
 
-            int hargaSatuHari = 0;
+            if (pilihanKelas == 1) {
+                hargaSatuHari = 250000;
+            }else if (pilihanKelas == 2) {
+                hargaSatuHari = 350000;
+            }else if (pilihanKelas == 3) {
+                hargaSatuHari = 500000;
+            }
+           
         }
        
-    }else{
-        System.out.println("Anda tidak perlu rawat inap, silahkan menuju apotek");
-    }
+   
             
-  
-  
+    double totalBiaya = hitungBiayaTanpaVoucher(i,hargaSatuHari);
+
+                        biayaTot[i][0] = (int) totalBiaya;
+
+                      
+
+                        if (!voucherCode.equalsIgnoreCase("NOVOUCHER") && voucherCode.contains(voucherCode)) {
+                            totalBiaya = setelahVoucherDiskon (totalBiaya);
+                        }
+                        System.out.println("Total Biaya Menginap Sebesar : " + totalBiaya);
+                 
+
+                    }else {
+                        System.out.println("Anda tidak perlu rawat inap, silahkan menuju apotek");
+                    }
 
 
 
@@ -260,12 +272,15 @@ public class Booking_Rumahsakit {
         }
     }
     
-private static double hitungBiayaTanpaVoucher(int index){
-    int hargaSatuHari = 0;
+private static double hitungBiayaTanpaVoucher(int index, int hargaSatuHari){
+   
+  if (dataPasien[index][9] != null) {
     int jumlahHari = Integer.parseInt(dataPasien[index][9]);
-
     int biayaSebelumDiskon = hargaSatuHari * jumlahHari;
     return biayaSebelumDiskon;
+  } else {
+    return 0;
+  }
 }
 
 private static double setelahVoucherDiskon(double totalBiaya) { 
