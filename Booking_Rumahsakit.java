@@ -75,8 +75,9 @@ public class Booking_Rumahsakit {
                 aturDiskon();
                     break;
                 case 4:
-                System.out.println("Terimakasih untuk Laporan Hari Ini");
-                break;
+                System.out.println("Terimakasih !");
+                return;
+               
                 default:
                 System.out.println("Invalid");
                 }
@@ -94,6 +95,22 @@ public class Booking_Rumahsakit {
         kodeVoucher = voucherBaru;
         diskon = diskonBaru;
      System.out.println("Voucher Kode Berhasil Ditambahkan ");
+
+     System.out.println("1. Kembali ke Menu Admin ");
+     System.out.println("2. Keluar ");
+     System.out.print("Pilih Opsi :");
+     int choice = sc.nextInt();
+switch (choice) {
+    case 1:
+        Admin();
+        break;
+    case 2:
+     Pasien();
+   
+    default:
+        break;
+}
+   
     }
 
     private static void Pasien (){
