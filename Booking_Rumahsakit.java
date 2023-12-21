@@ -10,9 +10,20 @@ public class Booking_Rumahsakit {
     private static double diskon = 0.1;
     private static String kodeVoucher = "NOVOUCHER";
  public static void main(String[] args) {
-    String usernameAdmin = "adminRS";
-    String passwordAdmin = "adminRS123";
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Selamat datang! Silakan pilih masuk sebagai (admin/pasien)");
+    String user = sc.next();
 
+<<<<<<< HEAD
+    if (user.equalsIgnoreCase("Admin")){
+        System.out.println("Anda masuk sebagai Admin. Selamat Bekerja!");
+        Admin();
+    }else if (user.equalsIgnoreCase("Pasien")){
+        System.out.println("Anda masuk sebagai pasien. Siolahkan pilih menu di bawah.");
+        Pasien();
+    }else {
+        System.out.println("Pemilihan user tidak valid.");
+=======
     String usernamePasien = "pasienRS"; 
     String passwordPasien = "pasienRS123";
 
@@ -40,17 +51,23 @@ public class Booking_Rumahsakit {
       }
     } while (loginberhasil);
         sc.close();
+>>>>>>> 84af8226410315863e5e2b82f0562fab309308d2
     }
-    
+ }
 
-
-    private static boolean login (String masukkanUsername, String masukkanPassword, String usernameBenar, String passwordBenar){
-        return masukkanUsername.equals(usernameBenar) && masukkanPassword.equals(passwordBenar);
-    }
-
-    private static void adminMenu(){
-        System.out.println("SELAMAT DATANG DI MENU ADMIN ");
+    private static void Admin() {
         int pilihan;
+<<<<<<< HEAD
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Pilihan Menu : ");
+            System.out.println("1. Laporan Harian ");
+            System.out.println("2. Cek Ketersediaan Kamar ");
+            System.out.println("3. Set Diskon / Voucher");
+            System.out.println("4. Keluar ");
+            System.out.print ("Masukkan No Menu (1/2/3) : ");
+
+=======
 
          {
             System.out.println("|===========================================|");
@@ -65,6 +82,7 @@ public class Booking_Rumahsakit {
             
            
             Scanner sc = new Scanner(System.in);
+>>>>>>> 84af8226410315863e5e2b82f0562fab309308d2
             pilihan = sc.nextInt();
 
             switch (pilihan) {
@@ -80,12 +98,12 @@ public class Booking_Rumahsakit {
                     break;
                 case 4:
                 System.out.println("Terimakasih untuk Laporan Hari Ini");
+                break;
                 default:
                 System.out.println("Invalid");
                 }
-        } while (pilihan != 3 );
+        } while (pilihan != 4 );
     }
-
     private static void aturDiskon() {
      Scanner sc = new Scanner(System.in);
 
@@ -99,16 +117,17 @@ public class Booking_Rumahsakit {
      System.out.println("Voucher Kode Berhasil Ditambahkan ");
     }
 
-    private static void menuPasien (){
+    private static void Pasien (){
         System.out.println("Selamat Datang di Rumah Sakit Polinema");
         int pilihan;
+        Scanner sc = new Scanner(System.in);
+
         do {
             System.out.println("Pilihan Menu : ");
             System.out.println("1. Jadwal Dokter");
             System.out.println("2. Booking Rumah Sakit");
             System.out.println("3. Exit ");
             System.out.print("Masukkan Pilihan (1/2/3) : ");
-            Scanner sc = new Scanner(System.in);
             pilihan = sc.nextInt();
 
             switch (pilihan) {
