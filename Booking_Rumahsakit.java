@@ -96,16 +96,18 @@ public class Booking_Rumahsakit {
     }
 
     private static void Pasien (){
-        System.out.println("Selamat Datang di Rumah Sakit Polinema");
         int pilihan;
         Scanner sc = new Scanner(System.in);
 
         do {
-            System.out.println("Pilihan Menu : ");
-            System.out.println("1. Jadwal Dokter");
-            System.out.println("2. Booking Rumah Sakit");
-            System.out.println("3. Exit ");
-            System.out.print("Masukkan Pilihan (1/2/3) : ");
+            System.out.println("|================================================|");
+            System.out.println("|=====Selamat Datang di Rumah sakit Polinema=====|");
+            System.out.println("|               Pilihan Menu :                   |");         
+            System.out.println("|       1. Jadwal Dokter                         |");
+            System.out.println("|       2. Booking Rumah Sakit                   |");
+            System.out.println("|       3. Keluar                                |");
+            System.out.println("|       Masukkan Pilihan (1/2/3) :               |");
+            System.out.println("|================================================|");
             pilihan = sc.nextInt();
 
             switch (pilihan) {
@@ -138,7 +140,7 @@ public class Booking_Rumahsakit {
                 System.out.println("|    2. Dokter-Mata           |");
                 System.out.println("|    3. Dokter-Gigi           |");
                 System.out.println("|    4. Dokter-SPPK           |");
-                System.out.println("|    5. Exit                  |");
+                System.out.println("|    5. Keluar                |");
                 System.out.println("|=============================|");
                 System.out.print("Masukkan  Dokter (1-2-3-4-5) :  ");
                 noDokter = sc.next();
