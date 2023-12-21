@@ -87,11 +87,16 @@ public class Booking_Rumahsakit {
     }
 
     private static void aturDiskon() {
-        System.out.println("Masukkan Kode Voucher");
-        kodeVoucher = sc.next();
-        System.out.println("Masukkan persentase diskon ( misal 0.1 untuk 10 %) : ");
-        diskon = sc.nextDouble();
-        System.out.println("Diskon/Voucher Berhasil ditambahkan ");
+     Scanner sc = new Scanner(System.in);
+
+     System.out.print("Masukkan Kode Voucher Baru : ");
+     String voucherBaru = sc.next();
+
+     System.out.println("Masukkan Persentase diskon (misal 0.1 untuk 10 %) : ");
+     double diskonBaru = sc.nextDouble();
+
+     voucherCodes.add(voucherBaru);
+     System.out.println("Voucher Kode Berhasil Ditambahkan ");
     }
 
     private static void menuPasien (){
@@ -223,10 +228,17 @@ public class Booking_Rumahsakit {
                         System.out.println("Apakah Penyakit Parah ? (ya / tidak) : ");
                         dataPasien[i][7] = sc.next();
                         
-                        double totalBiaya = biayaTot[i][0];
-                        totalBiaya = masukkanDiskonVoucher(totalBiaya);
+                        System.out.println("Masukkan Kode Voucher (Jika ada, Jika tidak, maka ketik NOVOUCHER) : ");
+                        String voucherCode = sc.next();
 
+                        double totalBiaya = hitungBiayaTanpaVoucher(i);
+
+                        if (!voucherCode.equalsIgnoreCase("NOVOUCHER") && voucherCodes.contains(voucherCode)) {
+                            totalBiaya = setelahVoucherDiskon (totalBiaya);
+                        }
                         System.out.println("Total Biaya Menginap Sebesar : " + totalBiaya);
+                 
+
    
 
     
@@ -256,49 +268,36 @@ public class Booking_Rumahsakit {
             String tipeKamar = dataPasien[i][13];
 
             int hargaSatuHari = 0;
-  
+        }
        
-       
-            if ("1".equalsIgnoreCase(tipeKamar)) {
-                hargaSatuHari = 300000;
-            } else if ("2".equalsIgnoreCase(tipeKamar)) {
-                hargaSatuHari = 250000;
-            } else if("3".equalsIgnoreCase(tipeKamar)){
-                hargaSatuHari = 500000;
-            }  
-  
-  
-
-
-
-        System.out.print("Masukkan Lama Rawat Inap: ");
-            int jumlahHari = sc.nextInt();
-        System.out.print("Masukkan Persentase Diskon (0-100): ");
-        double diskonPercentage = sc.nextDouble();
-
-        int biayaSebelumDiskon = hargaSatuHari * jumlahHari;
-        int diskon = (int) (biayaSebelumDiskon * (diskonPercentage / 100));
-        int biayaSetelahDiskon = biayaSebelumDiskon - diskon;
-
-        biayaTot[i][0] = biayaSetelahDiskon;
-
-        System.out.println("Total Biaya Menginap Setelah Diskon: " + biayaTot[i][0]);
-    }
-} else {
-    System.out.println("Anda Tidak Perlu Rawat Inap, Silahkan Menuju Apotek untuk mengambil obat");
-}}
-
-    }
-
-    private static double masukkanDiskonVoucher (double totalBiaya){
-        if (kodeVoucher.equals("NOVOUCHER") || !kodeVoucher.equals("DUDUUD")) {
-                totalBiaya -= totalBiaya * diskon;
-                System.out.println("Diskon " + (diskon * 100 ) + "% berhasil diterapkan");
-        } else {
-            System.out.println("Kode Voucher tidak Valid");
-        } return totalBiaya;
+    }else{
+        System.out.println("Anda tidak perlu rawat inap, silahkan menuju apotek");
     }
             
+  
+  
+
+
+
+     
+        }
+    }
+    
+private static double hitungBiayaTanpaVoucher(int index){
+    int hargaSatuHari = 0;
+    int jumlahHari = Integer.parseInt(dataPasien[index][9]);
+
+    int biayaSebelumDiskon = hargaSatuHari * jumlahHari;
+    return biayaSebelumDiskon;
+}
+
+private static double setelahVoucherDiskon(double totalBiaya) { 
+    totalBiaya -= totalBiaya * diskon;
+    System.out.println("Diskon " + (diskon * 100) + "% berhasil diterapkan ");
+    return totalBiaya;
+}
+    
+   
            
          
     
