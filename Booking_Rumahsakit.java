@@ -13,17 +13,17 @@ public class Booking_Rumahsakit {
     Scanner sc = new Scanner(System.in);
         boolean programRunning = true;
         while (programRunning) {
-            System.out.println("|==================================================|");
-            System.out.println("|                    Menu Utama                    |");
-            System.out.println("|==================================================|");
-            System.out.println("|          1. Login sebagai Admin                  |");
-            System.out.println("|          2. Login sebagai Pasien                 |");
-            System.out.println("|          3. Exit                                 |");
-            System.out.println("|==================================================|");
+            System.out.println("|============================================|");
+            System.out.println("|                 Menu Utama                 |");
+            System.out.println("|============================================|");
+            System.out.println("|          1. Login sebagai Admin            |");
+            System.out.println("|          2. Login sebagai Pasien           |");
+            System.out.println("|          3. Exit                           |");
+            System.out.println("|============================================|");
 
-            System.out.print(  "|                   Pilih opsi: ");
+            System.out.print(  " Pilih opsi :  ");
             int menuUtamaChoice = sc.nextInt();
-            System.out.println("|==================================================|");
+            System.out.println("|============================================|");
             switch (menuUtamaChoice) {
                 case 1:
                     Admin();
@@ -49,15 +49,15 @@ public class Booking_Rumahsakit {
         int pilihan;
 
          {
-            System.out.println("|===========================================|");
-            System.out.println("|================MENU UTAMA=================|");
-            System.out.println("|           Pilihan Menu :                  |");              
-            System.out.println("|           1. Laporan Harian               |");
-            System.out.println("|           2. Cek Ketersediaan Kamar       |");   
-            System.out.println("|           3. Set Diskon / Voucher         |");
-            System.out.println("|           4. Keluar                       |");
-            System.out.println("|           Masukkan No Menu (1/2/3) :      |");
-            System.out.println("|===========================================|");
+            System.out.println("|============================================|");
+            System.out.println("|================MENU UTAMA==================|");
+            System.out.println("|           Pilihan Menu :                   |");              
+            System.out.println("|           1. Laporan Harian                |");
+            System.out.println("|           2. Cek Ketersediaan Kamar        |");   
+            System.out.println("|           3. Set Diskon / Voucher          |");
+            System.out.println("|           4. Keluar                        |");
+            System.out.println("|           Masukkan No Menu (1/2/3) :       |");
+            System.out.println("|============================================|");
             
             Scanner sc = new Scanner(System.in);
             pilihan = sc.nextInt();
@@ -131,15 +131,16 @@ public class Booking_Rumahsakit {
            char jwb;
            boolean menuJadwal = true;
            while(menuJadwal){
-                System.out.println("=============================");
-                System.out.println("========Jadwal Dokter========"); 
-                System.out.println("======Pilih Jenis Dokter=====");
-                System.out.println("    1. Dokter-Umum           ");
-                System.out.println("    2. Dokter-Mata           ");
-                System.out.println("    3. Dokter-Gigi           ");
-                System.out.println("    4. Dokter-SPPK           ");
-                System.out.println("    5. Exit                  ");
-                System.out.print("Masukkan  Dokter (1-2-3-4-5) : ");
+                System.out.println("|=============================|");
+                System.out.println("|        Jadwal Dokter        |"); 
+                System.out.println("|      Pilih Jenis Dokter     |");
+                System.out.println("|    1. Dokter-Umum           |");
+                System.out.println("|    2. Dokter-Mata           |");
+                System.out.println("|    3. Dokter-Gigi           |");
+                System.out.println("|    4. Dokter-SPPK           |");
+                System.out.println("|    5. Exit                  |");
+                System.out.println("|=============================|");
+                System.out.print("Masukkan  Dokter (1-2-3-4-5) :  ");
                 noDokter = sc.next();
 
             if (noDokter.equalsIgnoreCase("1")) {
