@@ -14,6 +14,7 @@ public class Booking_Rumahsakit {
     System.out.println("Selamat datang! Silakan pilih masuk sebagai (admin/pasien)");
     String user = sc.next();
 
+<<<<<<< HEAD
     if (user.equalsIgnoreCase("Admin")){
         System.out.println("Anda masuk sebagai Admin. Selamat Bekerja!");
         Admin();
@@ -22,11 +23,41 @@ public class Booking_Rumahsakit {
         Pasien();
     }else {
         System.out.println("Pemilihan user tidak valid.");
+=======
+    String usernamePasien = "pasienRS"; 
+    String passwordPasien = "pasienRS123";
+
+    boolean loginberhasil = false ;
+
+    do {
+        System.out.print("Masukan username : ");
+        String masukkanUsername = sc.nextLine();
+
+        System.out.print("Masukan Password : ");
+        String masukkanPassword = sc.nextLine();
+
+        dataPasien = new String[jmlPasien][16];
+        biayaTot = new int[jmlPasien][1];
+
+
+    if (login(masukkanUsername,masukkanPassword, usernameAdmin,passwordAdmin)) {
+        adminMenu();
+        loginberhasil = true ;
+    } else if (login (masukkanUsername,masukkanPassword,usernamePasien,passwordPasien)) {
+        menuPasien();
+        loginberhasil = true ;
+    } else {
+        System.out.println("Invalid Username dan Password Silahkan Coba Lagi ");
+      }
+    } while (loginberhasil);
+        sc.close();
+>>>>>>> 84af8226410315863e5e2b82f0562fab309308d2
     }
  }
 
     private static void Admin() {
         int pilihan;
+<<<<<<< HEAD
         Scanner sc = new Scanner(System.in);
         do {
             System.out.println("Pilihan Menu : ");
@@ -36,6 +67,22 @@ public class Booking_Rumahsakit {
             System.out.println("4. Keluar ");
             System.out.print ("Masukkan No Menu (1/2/3) : ");
 
+=======
+
+         {
+            System.out.println("|===========================================|");
+            System.out.println("|               MENU UTAMA                  |");
+            System.out.println("|           Pilihan Menu :                  |");              
+            System.out.println("|           1. Laporan Harian               |");
+            System.out.println("|           2. Cek Ketersediaan Kamar       |");   
+            System.out.println("|           3. Set Diskon / Voucher         |");
+            System.out.println("|           4. Keluar                       |");
+            System.out.println("|           Masukkan No Menu (1/2/3) :      |");
+            System.out.println("|===========================================|");
+            
+           
+            Scanner sc = new Scanner(System.in);
+>>>>>>> 84af8226410315863e5e2b82f0562fab309308d2
             pilihan = sc.nextInt();
 
             switch (pilihan) {
@@ -203,11 +250,13 @@ public class Booking_Rumahsakit {
 
     
      if (dataPasien[i][7].equalsIgnoreCase("ya")) {
-        System.out.println("Pilih Kelas Kamar:");
-        System.out.println("1. Kelas 1");
-        System.out.println("2. Kelas 2");
-        System.out.println("3. VIP");
-        System.out.print("Masukkan Pilihan (1/2/3): ");
+        System.out.println("|============================|");
+        System.out.println("|   Pilih Kelas Kamar:       |");
+        System.out.println("|   1. Kelas 1               |");
+        System.out.println("|   2. Kelas 2               |");
+        System.out.println("|   3. VIP                   |");
+        System.out.print("      Masukkan Pilihan (1/2/3):|");
+        System.out.println("|============================|");
         int pilihanKelas = sc.nextInt();
         System.out.println("Masukkan Lama Rawat Inap");
         dataPasien[i][9] = Integer.toString(sc.nextInt());
@@ -276,7 +325,15 @@ public class Booking_Rumahsakit {
         
     
     private static void laporanHarian(){
-        for (int i = 0; i < jmlPasien ; i++) {
+       System.out.println("============================");
+       System.out.println("       Laporan Harian       "); 
+       System.out.println("============================");
+
+       if (jmlPasien == 0 ) {
+        System.out.println("Tidak Ada Pasien Hari Ini");
+        return;
+       }
+       for (int i = 0; i < jmlPasien; i++) {
         System.out.println("Data Pasien Ke - " + (i + 1));
         System.out.println("Nama: " + dataPasien[i][0]);
         System.out.println("Tempat Lahir: " + dataPasien[i][1]);
@@ -284,27 +341,31 @@ public class Booking_Rumahsakit {
         System.out.println("Alamat: " + dataPasien[i][3]);
         System.out.println("Nomor Telepon: " + dataPasien[i][4]);
         System.out.println("No KTP: " + dataPasien[i][5]);
-        System.out.println("Jenis Pelayanan: " + (dataPasien[i][8].equalsIgnoreCase("ya") ? "Rawat Inap" : "Rawat Jalan"));
+        System.out.println("Jenis Pelayanan: " + (dataPasien[i][7].equalsIgnoreCase("ya") ? "Rawat Inap" : "Rawat Jalan"));
         System.out.println("Gejala: " + dataPasien[i][6]);
         System.out.println("Dokter: " + dataPasien[i][10]);
         System.out.println("Jam Dokter: " + dataPasien[i][11]);
         System.out.println("Penyakit Parah: " + dataPasien[i][7]);
-        
+
         if (dataPasien[i][7].equalsIgnoreCase("ya")) {
             System.out.println("Tipe Kamar : " + dataPasien[i][8]);
             System.out.println("Lama Rawat Inap : " + dataPasien[i][9]);
+            System.out.println("Nomor Kamar: " + dataPasien[i][12]);
             System.out.println("Total Biaya Menginap : " + biayaTot[i][0]);
-            
         }
-        System.out.println();}
+
+       }
+       System.out.println("======================");
         }
 
         private static void cekKetersediaanKamar(){
-            System.out.println("=====Cek Ketersediaan Kamar=====");
-            System.out.println("1. Kelas 1");
-            System.out.println("2. Kelas 2");
-            System.out.println("3. VIP");
-            System.out.print("Masukkan Pilihan (1/2/3) : ");
+            System.out.println("|================================|");
+            System.out.println("|=====Cek Ketersediaan Kamar=====|");
+            System.out.println("|     1. Kelas 1                 |");
+            System.out.println("|     2. Kelas 2                 |");
+            System.out.println("|     3. VIP                     |");
+            System.out.println("|     Masukkan Pilihan (1/2/3) : |");
+            System.out.println("|================================|");
             int pilihanKelas = sc.nextInt();
 
             if (pilihanKelas < 1 || pilihanKelas > kamarTerisi.length) {
