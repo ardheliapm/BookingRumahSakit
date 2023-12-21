@@ -12,14 +12,14 @@ public class Booking_Rumahsakit {
  public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
         boolean programRunning = true;
-        while (programRunning) {
-            System.out.println("|============================================|");
-            System.out.println("|                 Menu Utama                 |");
-            System.out.println("|============================================|");
-            System.out.println("|          1. Login sebagai Admin            |");
-            System.out.println("|          2. Login sebagai Pasien           |");
-            System.out.println("|          3. Exit                           |");
-            System.out.println("|============================================|");
+        while (programRunning) { 
+            System.out.println("|==================================================|");
+            System.out.println("|                    Menu Utama                    |");
+            System.out.println("|==================================================|");
+            System.out.println("|          1. Login sebagai Admin                  |");
+            System.out.println("|          2. Login sebagai Pasien                 |");
+            System.out.println("|          3. Exit                                 |");
+            System.out.println("|==================================================|");
 
             System.out.print(  " Pilih opsi :  ");
             int menuUtamaChoice = sc.nextInt();
@@ -68,6 +68,7 @@ public class Booking_Rumahsakit {
                 laporanHarian();
                     break;
                 case 2: 
+               
                cekKetersediaanKamar();
                     break;
                 case 3:
@@ -294,6 +295,15 @@ public class Booking_Rumahsakit {
         System.out.println("|   Masukkan Pilihan (1/2/3):|");
         System.out.println("|============================|");
         int pilihanKelas = sc.nextInt();
+        if (pilihanKelas < 1 || pilihanKelas > kamarTerisi.length) {
+            System.out.println("Pilihan Kelas Tidak Valid");
+            return;
+        }
+        System.out.println("Ketersediaan kamar untuk kelas " + pilihanKelas + " : ");
+        for (int nomorKamar = 0; nomorKamar < kamarTerisi[pilihanKelas - 1].length ; nomorKamar++) {
+            String status = kamarTerisi[pilihanKelas - 1][nomorKamar] ? "Terisi" : "Kosong";
+            System.out.println("Kamar " + (nomorKamar + 1) + " : " + status);
+        }
         System.out.println("Masukkan Lama Rawat Inap");
         dataPasien[i][9] = Integer.toString(sc.nextInt());
 
@@ -398,7 +408,7 @@ private static double setelahVoucherDiskon(double totalBiaya) {
        System.out.println("======================");
         }
 
-        private static void cekKetersediaanKamar(){
+        private static void tampilkanKetersediaanKamar(){
             System.out.println("|================================|");
             System.out.println("|=====Cek Ketersediaan Kamar=====|");
             System.out.println("|     1. Kelas 1                 |");
@@ -421,7 +431,9 @@ private static double setelahVoucherDiskon(double totalBiaya) {
             }
         }
 
-
+private static void cekKetersediaanKamar() {
+    tampilkanKetersediaanKamar();
+}
 
 
 /* 
