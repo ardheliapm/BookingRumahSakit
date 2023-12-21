@@ -54,7 +54,7 @@ public class Booking_Rumahsakit {
 
          {
             System.out.println("|===========================================|");
-            System.out.println("|               MENU UTAMA                  |");
+            System.out.println("|================MENU UTAMA=================|");
             System.out.println("|           Pilihan Menu :                  |");              
             System.out.println("|           1. Laporan Harian               |");
             System.out.println("|           2. Cek Ketersediaan Kamar       |");   
@@ -236,7 +236,7 @@ public class Booking_Rumahsakit {
         System.out.println("|   1. Kelas 1               |");
         System.out.println("|   2. Kelas 2               |");
         System.out.println("|   3. VIP                   |");
-        System.out.print("      Masukkan Pilihan (1/2/3):|");
+        System.out.print("  |   Masukkan Pilihan (1/2/3):|");
         System.out.println("|============================|");
         int pilihanKelas = sc.nextInt();
         System.out.println("Masukkan Lama Rawat Inap");
