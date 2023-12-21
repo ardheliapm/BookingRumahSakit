@@ -306,7 +306,15 @@ public class Booking_Rumahsakit {
         
     
     private static void laporanHarian(){
-        for (int i = 0; i < jmlPasien ; i++) {
+       System.out.println("============================");
+       System.out.println("       Laporan Harian       "); 
+       System.out.println("============================");
+
+       if (jmlPasien == 0 ) {
+        System.out.println("Tidak Ada Pasien Hari Ini");
+        return;
+       }
+       for (int i = 0; i < jmlPasien; i++) {
         System.out.println("Data Pasien Ke - " + (i + 1));
         System.out.println("Nama: " + dataPasien[i][0]);
         System.out.println("Tempat Lahir: " + dataPasien[i][1]);
@@ -314,19 +322,21 @@ public class Booking_Rumahsakit {
         System.out.println("Alamat: " + dataPasien[i][3]);
         System.out.println("Nomor Telepon: " + dataPasien[i][4]);
         System.out.println("No KTP: " + dataPasien[i][5]);
-        System.out.println("Jenis Pelayanan: " + (dataPasien[i][8].equalsIgnoreCase("ya") ? "Rawat Inap" : "Rawat Jalan"));
+        System.out.println("Jenis Pelayanan: " + (dataPasien[i][7].equalsIgnoreCase("ya") ? "Rawat Inap" : "Rawat Jalan"));
         System.out.println("Gejala: " + dataPasien[i][6]);
         System.out.println("Dokter: " + dataPasien[i][10]);
         System.out.println("Jam Dokter: " + dataPasien[i][11]);
         System.out.println("Penyakit Parah: " + dataPasien[i][7]);
-        
+
         if (dataPasien[i][7].equalsIgnoreCase("ya")) {
             System.out.println("Tipe Kamar : " + dataPasien[i][8]);
             System.out.println("Lama Rawat Inap : " + dataPasien[i][9]);
+            System.out.println("Nomor Kamar: " + dataPasien[i][12]);
             System.out.println("Total Biaya Menginap : " + biayaTot[i][0]);
-            
         }
-        System.out.println();}
+
+       }
+       System.out.println("======================");
         }
 
         private static void cekKetersediaanKamar(){
