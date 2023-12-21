@@ -45,43 +45,42 @@ public class Booking_Rumahsakit {
         }    
  }
 
-    private static void Admin() {
-        int pilihan;
+ private static void Admin() {
+    int pilihan;
 
-         {
-            System.out.println("|============================================|");
-            System.out.println("|================MENU UTAMA==================|");
-            System.out.println("|           Pilihan Menu :                   |");              
-            System.out.println("|           1. Laporan Harian                |");
-            System.out.println("|           2. Cek Ketersediaan Kamar        |");   
-            System.out.println("|           3. Set Diskon / Voucher          |");
-            System.out.println("|           4. Keluar                        |");
-            System.out.println("|           Masukkan No Menu (1/2/3) :       |");
-            System.out.println("|============================================|");
-            
-            Scanner sc = new Scanner(System.in);
-            pilihan = sc.nextInt();
+    do {
+        System.out.println("|============================================|");
+        System.out.println("|================MENU UTAMA==================|");
+        System.out.println("|           Pilihan Menu :                   |");
+        System.out.println("|           1. Laporan Harian                |");
+        System.out.println("|           2. Cek Ketersediaan Kamar        |");
+        System.out.println("|           3. Set Diskon / Voucher          |");
+        System.out.println("|           4. Keluar                        |");
+        System.out.println("|           Masukkan No Menu (1/2/3/4) :     |");
+        System.out.println("|============================================|");
 
-            switch (pilihan) {
-                
-                case 1: 
+        Scanner sc = new Scanner(System.in);
+        pilihan = sc.nextInt();
+
+        switch (pilihan) {
+            case 1:
                 laporanHarian();
-                    break;
-                case 2: 
-               
-               cekKetersediaanKamar();
-                    break;
-                case 3:
-                aturDiskon();
-                    break;
-                case 4:
-                System.out.println("Terimakasih untuk Laporan Hari Ini");
                 break;
-                default:
+            case 2:
+                cekKetersediaanKamar();
+                break;
+            case 3:
+                aturDiskon();
+                break;
+            case 4:
+                System.out.println("Terimakasih  untuk Laporan Hari Ini");
+                break;
+            default:
                 System.out.println("Invalid");
-                }
-        } while (pilihan != 4 );
-    }
+        }
+    } while (pilihan != 4);
+}
+
     private static void aturDiskon() {
      Scanner sc = new Scanner(System.in);
 
@@ -404,9 +403,10 @@ private static double setelahVoucherDiskon(double totalBiaya) {
             System.out.println("Total Biaya Menginap : " + biayaTot[i][0]);
         }
 
-       }
-       System.out.println("======================");
         }
+       System.out.println("======================");
+       return;
+    }
 
         private static void tampilkanKetersediaanKamar(){
             System.out.println("|================================|");
