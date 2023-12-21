@@ -132,21 +132,21 @@ public class Booking_Rumahsakit {
                 System.out.println("2. Dokter-Mata");
                 System.out.println("3. Dokter-Gigi");
                 System.out.println("4. Dokter-SPPK");
-                System.out.print("Masukkan  Dokter ( Contoh : Dokter-Umum ) : ");
+                System.out.print("Masukkan  Dokter (1-2-3-4 ) : ");
                 noDokter = sc.next();
-            if (noDokter.equalsIgnoreCase("Dokter-Umum")) {
+            if (noDokter.equalsIgnoreCase("1")) {
                 System.out.println("Senin : 08.00 - 12.00");
                 System.out.println("Rabu : 10.00 - 14.00");
                 System.out.println("Jumat 13.00 - 17.00");
-            } else if (noDokter.equalsIgnoreCase("Dokter-Mata")) {
+            } else if (noDokter.equalsIgnoreCase("2")) {
                     System.out.println("Senin :  16.00 - 18.00 / 19.00 - 20.00  ");
                     System.out.println("Rabu  : 18.00 - 21.00");
                     System.out.println("Sabtu : 14.00 - 16.00 / 18.00 - 19. 00 ");
-            } else if  (noDokter.equalsIgnoreCase("Dokter-SPKK")){
+            } else if  (noDokter.equalsIgnoreCase("3")){
                     System.out.println("Senin :  16.00 - 17.00 / 19.00 - 21.00  ");
                     System.out.println("Rabu  : 18.00 - 21.00");
                     System.out.println("Jumat : 14.00 - 16.00 / 18.00 - 19. 00 ");
-            } else if (noDokter.equalsIgnoreCase("Dokter-Gigi")){
+            } else if (noDokter.equalsIgnoreCase("4")){
                     System.out.println("Selasa : 07.00 - 09.00 / 13.00 - 14.00 ");
                     System.out.println("Rabu : 08.00 - 11.00 / 16.00 - 18.00 ");
                     System.out.println("Jumat : 08.00 - 10.00");
@@ -236,7 +236,7 @@ public class Booking_Rumahsakit {
         System.out.println("|   1. Kelas 1               |");
         System.out.println("|   2. Kelas 2               |");
         System.out.println("|   3. VIP                   |");
-        System.out.print("  |   Masukkan Pilihan (1/2/3):|");
+        System.out.println("|   Masukkan Pilihan (1/2/3):|");
         System.out.println("|============================|");
         int pilihanKelas = sc.nextInt();
         System.out.println("Masukkan Lama Rawat Inap");
