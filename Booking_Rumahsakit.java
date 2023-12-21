@@ -23,7 +23,7 @@ public class Booking_Rumahsakit {
 
             System.out.print(  " Pilih opsi :  ");
             int menuUtamaChoice = sc.nextInt();
-            System.out.println("|============================================|");
+            System.out.println("|==================================================|");
             switch (menuUtamaChoice) {
                 case 1:
                     Admin();
@@ -45,51 +45,49 @@ public class Booking_Rumahsakit {
         }    
  }
 
-    private static void Admin() {
-        int pilihan;
+ private static void Admin() {
+    int pilihan;
 
-         {
-            System.out.println("|============================================|");
-            System.out.println("|================MENU UTAMA==================|");
-            System.out.println("|           Pilihan Menu :                   |");              
-            System.out.println("|           1. Laporan Harian                |");
-            System.out.println("|           2. Cek Ketersediaan Kamar        |");   
-            System.out.println("|           3. Set Diskon / Voucher          |");
-            System.out.println("|           4. Keluar                        |");
-            System.out.println("|           Masukkan No Menu (1/2/3) :       |");
-            System.out.println("|============================================|");
-            
-            Scanner sc = new Scanner(System.in);
-            pilihan = sc.nextInt();
+    do {
+        System.out.println("|==================================================|");
+        System.out.println("|===================MENU UTAMA=====================|");
+        System.out.println("|               Pilihan Menu :                     |");
+        System.out.println("|               1. Laporan Harian                  |");
+        System.out.println("|               2. Cek Ketersediaan Kamar          |");
+        System.out.println("|               3. Set Diskon / Voucher            |");
+        System.out.println("|               4. Keluar                          |");
+        System.out.println("|               Masukkan No Menu (1/2/3/4) :       |");
+        System.out.println("|==================================================|");
 
-            switch (pilihan) {
-                
-                case 1: 
+        Scanner sc = new Scanner(System.in);
+        pilihan = sc.nextInt();
+
+        switch (pilihan) {
+            case 1:
                 laporanHarian();
-                    break;
-                case 2: 
-               
-               cekKetersediaanKamar();
-                    break;
-                case 3:
+                break;
+            case 2:
+                cekKetersediaanKamar();
+                break;
+            case 3:
                 aturDiskon();
-                    break;
-                case 4:
-                System.out.println("Terimakasih !");
-                return;
-               
-                default:
+                break;
+            case 4:
+                System.out.println("Terimakasih  untuk Laporan Hari Ini");
+                break;
+            default:
                 System.out.println("Invalid");
-                }
-        } while (pilihan != 4 );
-    }
+        }
+    } while (pilihan != 4);
+}
+
     private static void aturDiskon() {
      Scanner sc = new Scanner(System.in);
-
+    
      System.out.print("Masukkan Kode Voucher Baru : ");
      String voucherBaru = sc.next();
 
-     System.out.println("Masukkan Persentase diskon (misal 0.1 untuk 10 %) : ");
+     System.out.print("Masukkan Persentase diskon (misal 0.1 untuk 10 %) : ");
      double diskonBaru = sc.nextDouble();
 
         kodeVoucher = voucherBaru;
@@ -113,19 +111,19 @@ switch (choice) {
    
     }
 
-    private static void Pasien (){
+    private static void Pasien(){
         int pilihan;
         Scanner sc = new Scanner(System.in);
 
         do {
-            System.out.println("|================================================|");
-            System.out.println("|=====Selamat Datang di Rumah sakit Polinema=====|");
-            System.out.println("|               Pilihan Menu :                   |");         
-            System.out.println("|       1. Jadwal Dokter                         |");
-            System.out.println("|       2. Booking Rumah Sakit                   |");
-            System.out.println("|       3. Keluar                                |");
-            System.out.println("|       Masukkan Pilihan (1/2/3) :               |");
-            System.out.println("|================================================|");
+            System.out.println("|==================================================|");
+            System.out.println("|=======Selamat Datang di Rumah sakit Polinema=====|");
+            System.out.println("|               Pilihan Menu :                     |");         
+            System.out.println("|        1. Jadwal Dokter                          |");
+            System.out.println("|        2. Booking Rumah Sakit                    |");
+            System.out.println("|        3. Keluar                                 |");
+            System.out.println("|        Masukkan Pilihan (1/2/3) :                |");
+            System.out.println("|==================================================|");
             pilihan = sc.nextInt();
 
             switch (pilihan) {
@@ -160,9 +158,9 @@ switch (choice) {
                 System.out.println("|    4. Dokter-SPPK           |");
                 System.out.println("|    5. Keluar                |");
                 System.out.println("|=============================|");
-                System.out.print("Masukkan  Dokter (1-2-3-4-5) :  ");
+                System.out.print("   Masukkan Dokter (1-2-3-4-5) :  ");
                 noDokter = sc.next();
-
+            
             if (noDokter.equalsIgnoreCase("1")) {
                 System.out.println("Senin : 08.00 - 12.00");
                 System.out.println("Rabu : 10.00 - 14.00");
@@ -228,41 +226,44 @@ switch (choice) {
     }
 
     private static void inputDataPasien(){
-          System.out.print("Masukkan Jumlah Pasien Hari Ini : ");
-                        jmlPasien = sc.nextInt();
-                        sc.nextLine();
+        Scanner pasien1 = new Scanner(System.in);
+        Scanner pasien2 = new Scanner(System.in);
+        Scanner pasien3 = new Scanner(System.in);
+        System.out.print("Masukkan Jumlah Pasien Hari Ini : ");
+        jmlPasien = sc.nextInt();
+        sc.nextLine();
+            
 
          dataPasien = new String[jmlPasien][16];
          biayaTot = new int[jmlPasien][1];
 
          kamarTerisi = new boolean[][]{
-            new boolean[20],
-            new boolean[20],
-            new boolean [10]
-         };
+        new boolean[20],
+        new boolean[20],
+        new boolean [10] };
          int hargaSatuHari = 0;
 
          for (int i = 0; i < jmlPasien; i++) {
                     System.out.println("Masukkan Data Pasien Ke - " + (i+1) );
 
                         System.out.print("Masukkan Nama Pasien : ");
-                        dataPasien[i][0] = sc.nextLine();
+                        dataPasien[i][0] = pasien1.nextLine();
 
                         System.out.print("Masukkan Tempat Lahir Pasien : ");
-                        dataPasien[i][1] = sc.nextLine();
+                        dataPasien[i][1] = pasien1.nextLine();
 
                         System.out.print("Masukkan Tanggal Lahir ( Contoh : 12 November 2004 ) : ");
-                        dataPasien[i][2] = sc.next();
-                        sc.nextLine();
+                        dataPasien[i][2] = pasien2.next();
 
                         System.out.print("Masukkan Alamat : ");
-                        dataPasien [i][3]= sc.nextLine();
+                        dataPasien [i][3]= pasien2.next();
+                        pasien2.nextLine();
 
-                        System.out.println("Masukkan Nomor Telepon : ");
-                        dataPasien[i][4] = sc.nextLine();
+                        System.out.print("Masukkan Nomor Telepon : ");
+                        dataPasien[i][4] = pasien1.nextLine();
 
-                        System.out.println("Masukkan No KTP  : ");
-                        dataPasien[i][5] = sc.next();
+                        System.out.print("Masukkan No KTP  : ");
+                        dataPasien[i][5] = pasien3.next();
 
                         
 
@@ -291,14 +292,14 @@ switch (choice) {
                         System.out.print("Masukan Dokter yang anda pilih  : ");
                         dataPasien[i][10] = sc.next();
 
-                        System.out.println("Masukan Jam Dokter yang anda pilih : ");
+                        System.out.print("Masukan Jam Dokter yang anda pilih : ");
                         dataPasien[i][11] = sc.next();
                         
 
-                        System.out.println("Apakah Penyakit Parah ? (ya / tidak) : ");
+                        System.out.print("Apakah Penyakit Parah ? (ya / tidak) : ");
                         dataPasien[i][7] = sc.next();
                         
-                        System.out.println("Masukkan Kode Voucher (Jika ada, Jika tidak, maka ketik NOVOUCHER) : ");
+                        System.out.print("Masukkan Kode Voucher (Jika ada, Jika tidak, maka ketik NOVOUCHER) : ");
                         String voucherCode = sc.next();
 
                       
@@ -328,26 +329,41 @@ switch (choice) {
 
         System.out.print("Masukkan Nomor Kamar (1-" + kamarTerisi[pilihanKelas - 1].length + "): ");
         int nomorKamar = sc.nextInt();
+        
         dataPasien[i][13] = Integer.toString(nomorKamar);
-
         if (kamarTerisi[pilihanKelas - 1][nomorKamar - 1]) {
             System.out.println("Kamar telah terisi. Pilih kamar lain.");
-            i--; // Kembalikan iterasi untuk menginput ulang data pasien
+        
+            // Tambahkan loop untuk meminta input ulang nomor kamar
+            while (kamarTerisi[pilihanKelas - 1][nomorKamar - 1]) {
+                System.out.print("Masukkan Nomor Kamar (1-" + kamarTerisi[pilihanKelas - 1].length + "): ");
+                nomorKamar = sc.nextInt();
+        
+                if (nomorKamar < 1 || nomorKamar > kamarTerisi[pilihanKelas - 1].length) {
+                    System.out.println("Nomor Kamar Tidak Valid");
+                } else if (kamarTerisi[pilihanKelas - 1][nomorKamar - 1]) {
+                    System.out.println("Kamar telah terisi. Pilih kamar lain.");
+                } else {
+                    break; // Keluar dari loop jika nomor kamar sudah valid dan tidak terisi
+                }
+            }
+        
+            // Kembalikan iterasi untuk menginput ulang data pasien
+            i--;
         } else {
             kamarTerisi[pilihanKelas - 1][nomorKamar - 1] = true;
             dataPasien[i][12] = Integer.toString(nomorKamar);
-
-            String tipeKamar = dataPasien[i][13];
-
+        
+        
             if (pilihanKelas == 1) {
                 hargaSatuHari = 250000;
-            }else if (pilihanKelas == 2) {
+            } else if (pilihanKelas == 2) {
                 hargaSatuHari = 350000;
-            }else if (pilihanKelas == 3) {
+            } else if (pilihanKelas == 3) {
                 hargaSatuHari = 500000;
             }
-           
         }
+        
        
    
             
@@ -423,9 +439,10 @@ private static double setelahVoucherDiskon(double totalBiaya) {
             System.out.println("Total Biaya Menginap : " + biayaTot[i][0]);
         }
 
-       }
-       System.out.println("======================");
         }
+       System.out.println("======================");
+       return;
+    }
 
         private static void tampilkanKetersediaanKamar(){
             System.out.println("|================================|");
