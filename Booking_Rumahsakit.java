@@ -118,7 +118,8 @@ switch (choice) {
     private static void Pasien(){
         int pilihan;
         Scanner sc = new Scanner(System.in);
-
+String[][] dataPasien = null;
+int [][] biayaTot = null;
         do {
             System.out.println("|==================================================|");
             System.out.println("|=======Selamat Datang di Rumah sakit Polinema=====|");
@@ -336,7 +337,7 @@ switch (choice) {
         System.out.print("Masukkan Nomor Kamar (1-" + kamarTerisi[pilihanKelas - 1].length + "): ");
         int nomorKamar = sc.nextInt();
 
-        dataPasien[i][13] = Integer.toString(nomorKamar);
+        dataPasien[i][13] = Integer.toString(nomorKamar); 
         if (kamarTerisi[pilihanKelas - 1][nomorKamar - 1]) {
             System.out.println("Kamar telah terisi. Pilih kamar lain.");
         
@@ -383,13 +384,14 @@ switch (choice) {
                             totalBiaya = setelahVoucherDiskon (totalBiaya);
                         }
                         System.out.println("Total Biaya Menginap Sebesar : " + totalBiaya);
-                 
+                 tampilkanStruk(i);
+
 
                     }else {
                         System.out.println("Anda tidak perlu rawat inap, silahkan menuju apotek");
                     }
 
-                    tampilkanStruk (jmlPasien - 1);
+                  //  tampilkanSemuaStruk();
 
      
         }
@@ -508,18 +510,55 @@ private static void tampilkanStruk(int index) {
     System.out.println("|=============================|");
     System.out.println("Nama: " + dataPasien[index][0]);
     System.out.println("No Telepom : " + dataPasien[index][4]);
-    System.out.println("Jenis Pelayanan: " + (dataPasien[index][7].equalsIgnoreCase("ya") ? "Rawat Inap" : "Rawat Jalan"));
+
+    if (dataPasien[index][7] != null) {
+        System.out.println("Jenis Pelayanan : " + (dataPasien[index][7].equalsIgnoreCase("ya") ? "Rawat Inap " : "Rawat Jalan"));
+
+    }else {
+        System.out.println("Jenis Pelayanan : - ");
+    }
+
+
     System.out.println("Dokter: " + dataPasien[index][10]);
     System.out.println("Jam Dokter: " + dataPasien[index][11]);
 
-    if (dataPasien[index][7].equalsIgnoreCase("ya")) {
-        System.out.println("Tipe Kamar : " + dataPasien[index][8]);
+    if (dataPasien[index][7] != null && dataPasien[index][7].equalsIgnoreCase("ya")) {
+        System.out.println("Tipe Kamar : " + dataPasien[index][9]);
         System.out.println("Nomor Kamar: " + dataPasien[index][12]);
         System.out.println("Total Biaya Menginap : " + biayaTot[index][0]);
     } else {
         System.out.println("Biaya Rawat Jalan: " + hitungBiayaTanpaVoucher(index, 0));
     }
 
+    System.out.println("|=============================|");
+}
+
+private static void tampilkanSemuaStruk(){
+    System.out.println("========================");
+    System.out.println("        Semua Struk     ");
+    System.out.println("========================");
+
+    if (jmlPasien == 0) {
+        System.out.println("Tidak Pasien Hari Ini");
+        return;
+    }
+    for (int i = 0; i < dataPasien.length; i++) {
+            System.out.println("========================");
+            System.out.println("        Semua Struk");
+            System.out.println("========================");
+            System.out.println("|=============================|");
+            System.out.println("|           Struk             |");
+            System.out.println("|=============================|");
+            System.out.println("Nama: " + dataPasien[i][0]);
+            System.out.println("No Telepon : " + dataPasien[i][5]);
+            System.out.println("Jenis Pelayanan : " + dataPasien[i][6]);
+            System.out.println("Dokter: " + dataPasien[i][7]);
+            System.out.println("Jam Dokter: " + dataPasien[i][11]);
+            System.out.println("Tipe Kamar : " + dataPasien[i][9]);
+            System.out.println("Nomor Kamar: " + dataPasien[i][12]);
+            System.out.println("Total Biaya Menginap : " + biayaTot[i][0]);
+            System.out.println("|========================================|");
+    }
     System.out.println("|=============================|");
 }
 
