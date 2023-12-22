@@ -107,7 +107,8 @@ switch (choice) {
         Admin();
         break;
     case 2:
-     Pasien();
+     return
+     ;
    
     default:
         break;
