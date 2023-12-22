@@ -54,7 +54,7 @@ public class Booking_Rumahsakit {
 
     do {
         System.out.println("|==================================================|");
-        System.out.println("|===================MENU UTAMA=====================|");
+        System.out.println("|===================MENU ADMIN=====================|");
         System.out.println("|               Pilihan Menu :                     |");
         System.out.println("|               1. Laporan Harian                  |");
         System.out.println("|               2. Cek Ketersediaan Kamar          |");
@@ -550,7 +550,7 @@ private static void tampilkanSemuaStruk(){
             System.out.println("Jenis Pelayanan : " + dataPasien[i][6]);
             System.out.println("Dokter: " + dataPasien[i][7]);
             System.out.println("Jam Dokter: " + dataPasien[i][11]);
-            System.out.println("Tipe Kamar : " + dataPasien[i][9]);
+            System.out.println("Tipe Kamar : " + dataPasien[i][8]);
             System.out.println("Nomor Kamar: " + dataPasien[i][12]);
             System.out.println("Total Biaya Menginap : " + biayaTot[i][0]);
             System.out.println("|========================================|");
