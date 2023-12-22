@@ -241,12 +241,8 @@ switch (choice) {
          dataPasien = new String[jmlPasien][16];
          biayaTot = new int[jmlPasien][1];
 
-        /*  kamarTerisi = new boolean[][]{
-        new boolean[20],
-        new boolean[20],
-        new boolean [10] }; */
+        
          int hargaSatuHari = 0;
-
          for (int i = 0; i < jmlPasien; i++) {
                     System.out.println("Masukkan Data Pasien Ke - " + (i+1) );
 
