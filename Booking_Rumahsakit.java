@@ -98,18 +98,14 @@ public class Booking_Rumahsakit {
         diskon = diskonBaru;
      System.out.println("Voucher Kode Berhasil Ditambahkan ");
 
-     System.out.println("1. Kembali ke Menu Admin ");
-     System.out.println("2. Keluar ");
-     System.out.print("Pilih Opsi :");
+     System.out.println(" Ketik 1 untuk Kembali ke Menu Admin ");
+     
      int choice = sc.nextInt();
 switch (choice) {
     case 1:
         Admin();
         break;
-    case 2:
-     return
-     ;
-   
+    
     default:
         break;
 }
