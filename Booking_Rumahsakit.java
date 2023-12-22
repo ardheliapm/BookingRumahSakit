@@ -502,7 +502,7 @@ private static void tampilkanStruk(int index) {
     System.out.println("|=============================|");
     System.out.println("|           Struk             |");
     System.out.println("|=============================|");
-    System.out.println("Nama: " + dataPasien[index][0]);
+    System.out.println("Nama:     " + dataPasien[index][0]);
     System.out.println("No Telepom : " + dataPasien[index][4]);
     System.out.println("Jenis Pelayanan: " + (dataPasien[index][7].equalsIgnoreCase("ya") ? "Rawat Inap" : "Rawat Jalan"));
     System.out.println("Dokter: " + dataPasien[index][10]);
