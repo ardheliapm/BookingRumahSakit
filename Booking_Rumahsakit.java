@@ -54,7 +54,7 @@ public class Booking_Rumahsakit {
 
     do {
         System.out.println("|==================================================|");
-        System.out.println("|===================MENU UTAMA=====================|");
+        System.out.println("|===================MENU ADMIN=====================|");
         System.out.println("|               Pilihan Menu :                     |");
         System.out.println("|               1. Laporan Harian                  |");
         System.out.println("|               2. Cek Ketersediaan Kamar          |");
