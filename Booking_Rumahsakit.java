@@ -347,11 +347,11 @@ int [][] biayaTot = null;
                 } else if (kamarTerisi[pilihanKelas - 1][nomorKamar - 1]) {
                     System.out.println("Kamar telah terisi. Pilih kamar lain.");
                 } else {
-                    break; // Keluar dari loop jika nomor kamar sudah valid dan tidak terisi
+                    break; 
                 }
             }
         
-            // Kembalikan iterasi untuk menginput ulang data pasien
+            
             i--;
     } else {
             kamarTerisi[pilihanKelas - 1][nomorKamar - 1] = true;
@@ -387,7 +387,7 @@ int [][] biayaTot = null;
                         System.out.println("Anda tidak perlu rawat inap, silahkan menuju apotek");
                     }
 
-                  //  tampilkanSemuaStruk();
+                  
 
      
         }
@@ -431,7 +431,7 @@ private static double setelahVoucherDiskon(double totalBiaya) {
         System.out.println("Alamat: " + dataPasien[i][3]);
         System.out.println("Nomor Telepon: " + dataPasien[i][4]);
         System.out.println("No KTP: " + dataPasien[i][5]);
-        System.out.println("Jenis Pelayanan: " + (dataPasien[i][7].equalsIgnoreCase("ya") ? "Rawat Inap" : "Rawat Jalan"));
+        System.out.println("Jenis Pelayanan : " + (dataPasien[i][7].equalsIgnoreCase("ya") ? "Rawat Inap" : "Rawat Jalan"));
         System.out.println("Gejala: " + dataPasien[i][6]);
         System.out.println("Dokter: " + dataPasien[i][10]);
         System.out.println("Jam Dokter: " + dataPasien[i][11]);
